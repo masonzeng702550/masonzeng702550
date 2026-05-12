@@ -21,8 +21,8 @@
 
 <!-- ░▒▓ SNAKE DIVIDER ▓▒░ -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/output/github-contribution-grid-snake-dark.svg" />
-  <img src="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/output/github-contribution-grid-snake.svg" width="100%" alt="snake eating my green dots" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map-dark.svg" />
+  <img src="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map.svg" width="100%" alt="airplane flying across a contribution-dot world map" />
 </picture>
 
 ## `>` whoami
@@ -47,8 +47,8 @@ const mason = {
 ```
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/output/github-contribution-grid-snake-dark.svg" />
-  <img src="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/output/github-contribution-grid-snake.svg" width="100%" alt="snake" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map-dark.svg" />
+  <img src="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map.svg" width="100%" alt="flight map" />
 </picture>
 
 ## `>` arsenal
@@ -88,8 +88,8 @@ const mason = {
 </div>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/output/github-contribution-grid-snake-dark.svg" />
-  <img src="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/output/github-contribution-grid-snake.svg" width="100%" alt="snake" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map-dark.svg" />
+  <img src="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map.svg" width="100%" alt="flight map" />
 </picture>
 
 ## `>` domains
@@ -165,8 +165,8 @@ const mason = {
 </table>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/output/github-contribution-grid-snake-dark.svg" />
-  <img src="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/output/github-contribution-grid-snake.svg" width="100%" alt="snake" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map-dark.svg" />
+  <img src="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map.svg" width="100%" alt="flight map" />
 </picture>
 
 ## `>` open-source
@@ -183,8 +183,8 @@ const mason = {
 </div>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/output/github-contribution-grid-snake-dark.svg" />
-  <img src="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/output/github-contribution-grid-snake.svg" width="100%" alt="snake" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map-dark.svg" />
+  <img src="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map.svg" width="100%" alt="flight map" />
 </picture>
 
 ## `>` stats
@@ -213,8 +213,8 @@ const mason = {
 </div>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/output/github-contribution-grid-snake-dark.svg" />
-  <img src="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/output/github-contribution-grid-snake.svg" width="100%" alt="snake" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map-dark.svg" />
+  <img src="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map.svg" width="100%" alt="flight map" />
 </picture>
 
 ## `>` connect
