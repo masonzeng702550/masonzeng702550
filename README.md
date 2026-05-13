@@ -46,11 +46,6 @@ const mason = {
 };
 ```
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map-dark.svg" />
-  <img src="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map.svg" width="100%" alt="flight map" />
-</picture>
-
 ## `>` arsenal
 
 <div align="center">
@@ -86,11 +81,6 @@ const mason = {
 ![Raspberry Pi](https://img.shields.io/badge/Raspberry%20Pi-0f2027?style=for-the-badge&logo=raspberrypi&logoColor=00c9a7)
 
 </div>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map-dark.svg" />
-  <img src="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map.svg" width="100%" alt="flight map" />
-</picture>
 
 ## `>` domains
 
@@ -164,38 +154,28 @@ const mason = {
 </tr>
 </table>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map-dark.svg" />
-  <img src="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map.svg" width="100%" alt="flight map" />
-</picture>
-
 ## `>` open-source
 
 <div align="center">
 
-[![Studookimg](https://github-readme-stats.vercel.app/api/pin/?username=masonzeng702550&repo=Studookimg-Hub-OSS&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/Studookimg-Hub-OSS)
-[![ookini-kok](https://github-readme-stats.vercel.app/api/pin/?username=masonzeng702550&repo=ookini-kok&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/ookini-kok)
-[![VOXATC](https://github-readme-stats.vercel.app/api/pin/?username=masonzeng702550&repo=VOXATC-voice_air_traffic_communication_trainer&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/VOXATC-voice_air_traffic_communication_trainer)
-[![ATIS-Monster](https://github-readme-stats.vercel.app/api/pin/?username=masonzeng702550&repo=ATIS-Monster&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/ATIS-Monster)
-[![recycle-ai-tw](https://github-readme-stats.vercel.app/api/pin/?username=masonzeng702550&repo=recycle-ai-tw&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/recycle-ai-tw)
-[![Simple-JSON-Quiz-Tool](https://github-readme-stats.vercel.app/api/pin/?username=masonzeng702550&repo=Simple-JSON-Quiz-Tool&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/Simple-JSON-Quiz-Tool)
+[![Studookimg](https://github-readme-stats-roan-five.vercel.app/api/pin/?username=masonzeng702550&repo=Studookimg-Hub-OSS&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/Studookimg-Hub-OSS)
+[![ookini-kok](https://github-readme-stats-roan-five.vercel.app/api/pin/?username=masonzeng702550&repo=ookini-kok&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/ookini-kok)
+[![VOXATC](https://github-readme-stats-roan-five.vercel.app/api/pin/?username=masonzeng702550&repo=VOXATC-voice_air_traffic_communication_trainer&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/VOXATC-voice_air_traffic_communication_trainer)
+[![ATIS-Monster](https://github-readme-stats-roan-five.vercel.app/api/pin/?username=masonzeng702550&repo=ATIS-Monster&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/ATIS-Monster)
+[![recycle-ai-tw](https://github-readme-stats-roan-five.vercel.app/api/pin/?username=masonzeng702550&repo=recycle-ai-tw&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/recycle-ai-tw)
+[![Simple-JSON-Quiz-Tool](https://github-readme-stats-roan-five.vercel.app/api/pin/?username=masonzeng702550&repo=Simple-JSON-Quiz-Tool&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/Simple-JSON-Quiz-Tool)
 
 </div>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map-dark.svg" />
-  <img src="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map.svg" width="100%" alt="flight map" />
-</picture>
 
 ## `>` stats
 
 <div align="center">
 
 <a href="https://github.com/masonzeng702550">
-  <img height="180" src="https://github-readme-stats.vercel.app/api?username=masonzeng702550&show_icons=true&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7&hide_border=false&include_all_commits=true&count_private=true" alt="stats" />
+  <img height="180" src="https://github-readme-stats-roan-five.vercel.app/api?username=masonzeng702550&show_icons=true&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7&hide_border=false&include_all_commits=true&count_private=true" alt="stats" />
 </a>
 <a href="https://github.com/masonzeng702550">
-  <img height="180" src="https://github-readme-stats.vercel.app/api/top-langs/?username=masonzeng702550&layout=compact&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&text_color=ffffff&border_color=00c9a7&hide_border=false&langs_count=8" alt="languages" />
+  <img height="180" src="https://github-readme-stats-roan-five.vercel.app/api/top-langs/?username=masonzeng702550&layout=compact&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&text_color=ffffff&border_color=00c9a7&hide_border=false&langs_count=8" alt="languages" />
 </a>
 
 <a href="https://github.com/masonzeng702550">
@@ -211,11 +191,6 @@ const mason = {
 </a>
 
 </div>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map-dark.svg" />
-  <img src="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map.svg" width="100%" alt="flight map" />
-</picture>
 
 ## `>` connect
 
