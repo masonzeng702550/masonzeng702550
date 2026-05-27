@@ -186,10 +186,6 @@ const mason = {
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=masonzeng702550&theme=react-dark&bg_color=0f2027&color=00c9a7&line=00c9a7&point=ffffff&hide_border=false&custom_title=Contribution%20Activity" alt="activity" />
 </a>
 
-<a href="https://github.com/masonzeng702550">
-  <img src="https://github-profile-trophy.vercel.app/?username=masonzeng702550&theme=darkhub&no-frame=true&no-bg=true&margin-w=8&row=1&column=7" alt="trophies" />
-</a>
-
 </div>
 
 ## `>` connect
