@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mason Zeng · 曾緯淳</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#05070d;
+    --bg-soft:#0a0e1a;
+    --card:#0f1422;
+    --card-hover:#141a2a;
+    --border:#1a2236;
+    --border-bright:#2a3550;
+    --text:#e5e7eb;
+    --text-soft:#cbd5e1;
+    --muted:#64748b;
+    --muted-2:#475569;
+    --cyan:#22d3ee;
+    --cyan-dim:rgba(34,211,238,0.15);
+    --violet:#a78bfa;
+    --gold:#fbbf24;
+    --green:#34d399;
+    --red:#f87171;
+    --font-sans:'Inter','Noto Sans TC',-apple-system,sans-serif;
+    --font-mono:'JetBrains Mono','SF Mono',monospace;
+    --transition:.25s cubic-bezier(0.4,0,0.2,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text-soft);
+    font-family:var(--font-sans);
+    font-size:15px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+  body.no-scroll{overflow:hidden;height:100vh}
+  a{color:var(--cyan);text-decoration:none;transition:var(--transition)}
+  a:hover{color:var(--text)}
+  ::selection{background:var(--cyan-dim);color:var(--text)}
+  .mono{font-family:var(--font-mono)}
+
+  /* ============================================================
+     BACKGROUND: subtle grid + ambient glow
+     ============================================================ */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:
+      linear-gradient(rgba(34,211,238,0.04) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(34,211,238,0.04) 1px,transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(ellipse at center,black 30%,transparent 75%);
+    -webkit-mask-image:radial-gradient(ellipse at center,black 30%,transparent 75%);
+  }
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(circle at 15% 15%,rgba(34,211,238,0.08),transparent 35%),
+      radial-gradient(circle at 85% 85%,rgba(167,139,250,0.08),transparent 35%);
+  }
+
+  /* ============================================================
+     CLI BOOT LOADER (keep CLI only here)
+     ============================================================ */
+  #boot{
+    position:fixed;inset:0;z-index:9999;
+    background:#000;
+    padding:48px 32px;
+    font-family:var(--font-mono);
+    font-size:13px;
+    line-height:1.7;
+    overflow:hidden;
+    color:#34d399;
+    transition:opacity .6s ease-out,visibility .6s;
+  }
+  #boot.done{opacity:0;visibility:hidden}
+  #boot pre{white-space:pre-wrap;color:inherit}
+  #boot .ok{color:#34d399}
+  #boot .warn{color:#fbbf24}
+  #boot .label{color:#22d3ee}
+  #boot .dim{color:#475569}
+  #boot .cursor{
+    display:inline-block;width:8px;height:14px;background:#34d399;
+    vertical-align:-2px;animation:blink 1s steps(2) infinite;
+  }
+  @keyframes blink{50%{opacity:0}}
+
+  /* ============================================================
+     HEADER / NAV
+     ============================================================ */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(5,7,13,0.7);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid transparent;
+    transition:var(--transition);
+  }
+  header.scrolled{border-bottom-color:var(--border)}
+  .nav{
+    max-width:1200px;margin:0 auto;
+    padding:18px 32px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{
+    font-family:var(--font-mono);font-weight:700;
+    font-size:15px;color:var(--text);
+    display:flex;align-items:center;gap:8px;
+  }
+  .brand .dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--cyan);
+    box-shadow:0 0 12px var(--cyan);
+    animation:pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  .nav-links{display:flex;gap:6px;align-items:center}
+  .nav-links a{
+    padding:8px 14px;border-radius:6px;
+    font-family:var(--font-mono);font-size:13px;
+    color:var(--muted);
+  }
+  .nav-links a:hover{color:var(--cyan);background:var(--cyan-dim)}
+  @media(max-width:720px){.nav-links{display:none}}
+
+  /* ============================================================
+     LAYOUT
+     ============================================================ */
+  main{
+    position:relative;z-index:1;
+    max-width:1100px;margin:0 auto;
+    padding:0 32px;
+  }
+  section{padding:90px 0;scroll-margin-top:80px}
+
+  .section-head{
+    margin-bottom:48px;
+    display:flex;align-items:flex-end;gap:16px;
+    flex-wrap:wrap;
+  }
+  .section-head .num{
+    font-family:var(--font-mono);font-size:14px;
+    color:var(--cyan);
+  }
+  .section-head h2{
+    font-size:clamp(28px,4vw,40px);
+    font-weight:700;color:var(--text);
+    line-height:1;letter-spacing:-0.02em;
+  }
+  .section-head .line{
+    flex:1;height:1px;
+    background:linear-gradient(90deg,var(--border-bright),transparent);
+    margin-bottom:10px;
+    min-width:60px;
+  }
+  .section-head .sub{
+    color:var(--muted);font-family:var(--font-mono);font-size:13px;
+    width:100%;margin-top:4px;
+  }
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero{
+    min-height:100vh;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:100px 0 60px;
+    position:relative;
+  }
+  .hero .greeting{
+    font-family:var(--font-mono);
+    color:var(--cyan);font-size:14px;
+    margin-bottom:24px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .hero .greeting::before{
+    content:"";width:32px;height:1px;background:var(--cyan);
+  }
+  .hero h1{
+    font-size:clamp(48px,9vw,96px);
+    font-weight:800;line-height:1;
+    color:var(--text);
+    letter-spacing:-0.04em;
+    margin-bottom:8px;
+  }
+  .hero h1 .gradient{
+    background:linear-gradient(120deg,var(--cyan),var(--violet));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero h2{
+    font-size:clamp(28px,5vw,56px);
+    font-weight:700;line-height:1.1;
+    color:var(--muted);
+    letter-spacing:-0.02em;
+    margin-bottom:32px;
+  }
+  .hero .lead{
+    max-width:640px;font-size:17px;line-height:1.7;
+    color:var(--text-soft);
+    margin-bottom:48px;
+  }
+  .hero .lead .hl{color:var(--cyan)}
+
+  .hero .stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:0;
+    max-width:720px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+    background:rgba(15,20,34,0.5);
+    backdrop-filter:blur(8px);
+  }
+  .hero .stat{
+    padding:20px 24px;
+    border-right:1px solid var(--border);
+  }
+  .hero .stat:last-child{border-right:none}
+  .hero .stat .num{
+    font-family:var(--font-mono);
+    font-size:28px;font-weight:700;color:var(--cyan);
+    line-height:1;
+  }
+  .hero .stat .label{
+    font-family:var(--font-mono);
+    font-size:12px;color:var(--muted);
+    margin-top:8px;letter-spacing:0.05em;text-transform:uppercase;
+  }
+  @media(max-width:600px){
+    .hero .stat{border-right:none;border-bottom:1px solid var(--border)}
+    .hero .stat:last-child{border-bottom:none}
+  }
+
+  /* ============================================================
+     ABOUT
+     ============================================================ */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:48px;
+    align-items:start;
+  }
+  .about-text p{margin-bottom:14px;color:var(--text-soft)}
+  .about-text .hl{color:var(--cyan)}
+  .about-text .hl-2{color:var(--text);font-weight:500}
+
+  .skill-box{
+    background:linear-gradient(180deg,var(--card),rgba(15,20,34,0.4));
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:24px;
+  }
+  .skill-box h3{
+    font-family:var(--font-mono);font-size:12px;
+    color:var(--cyan);letter-spacing:0.08em;
+    text-transform:uppercase;margin-bottom:14px;
+  }
+  .skill-box h3:not(:first-child){margin-top:24px}
+  .skill-tags{display:flex;flex-wrap:wrap;gap:6px}
+  .skill-tag{
+    padding:5px 11px;
+    background:rgba(34,211,238,0.06);
+    border:1px solid rgba(34,211,238,0.2);
+    border-radius:6px;
+    font-family:var(--font-mono);
+    font-size:12px;color:var(--text);
+  }
+  @media(max-width:780px){.about-grid{grid-template-columns:1fr}}
+
+  /* ============================================================
+     PATENTS
+     ============================================================ */
+  .patents{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:16px;
+  }
+  .patent{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:24px;
+    transition:var(--transition);
+    overflow:hidden;
+  }
+  .patent::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,transparent,var(--cyan),transparent);
+    opacity:0;transition:var(--transition);
+  }
+  .patent:hover{
+    transform:translateY(-4px);
+    border-color:var(--border-bright);
+    background:var(--card-hover);
+  }
+  .patent:hover::before{opacity:1}
+  .patent .id{
+    font-family:var(--font-mono);font-size:12px;
+    color:var(--cyan);letter-spacing:0.05em;
+    margin-bottom:12px;
+  }
+  .patent h3{
+    font-size:17px;font-weight:600;color:var(--text);
+    margin-bottom:8px;line-height:1.4;
+  }
+  .patent p{color:var(--muted);font-size:13.5px;line-height:1.6}
+
+  /* ============================================================
+     YEAR-GROUPED TIMELINE
+     ============================================================ */
+  .timeline{position:relative}
+  .year-block{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:32px;
+    padding:24px 0;
+    border-top:1px solid var(--border);
+  }
+  .year-block:first-child{border-top:none}
+  .year-block .year{
+    position:sticky;top:90px;
+    font-family:var(--font-mono);
+    font-size:24px;font-weight:700;
+    color:var(--cyan);
+    height:fit-content;
+    letter-spacing:-0.02em;
+  }
+  .year-block .year::after{
+    content:"";display:block;
+    width:32px;height:2px;
+    background:var(--cyan);
+    margin-top:8px;opacity:.5;
+  }
+  .year-block .year .sub{
+    display:block;font-size:11px;
+    color:var(--muted);
+    font-weight:400;margin-top:8px;letter-spacing:0.05em;
+  }
+  .year-items{display:flex;flex-direction:column;gap:10px}
+  .item{
+    display:flex;gap:14px;align-items:flex-start;
+    padding:10px 14px;
+    border-radius:8px;
+    transition:var(--transition);
+  }
+  .item:hover{background:rgba(34,211,238,0.04)}
+  .item .marker{
+    flex-shrink:0;margin-top:8px;
+    width:6px;height:6px;
+    background:var(--cyan);
+    box-shadow:0 0 8px var(--cyan);
+    transform:rotate(45deg);
+  }
+  .item .body{flex:1;min-width:0}
+  .item h4{
+    font-size:15px;font-weight:500;color:var(--text);
+    margin-bottom:2px;line-height:1.4;
+  }
+  .item p{color:var(--muted);font-size:13px;line-height:1.5}
+  .item .tag{
+    display:inline-block;
+    font-family:var(--font-mono);font-size:11px;
+    padding:2px 8px;border-radius:4px;
+    background:var(--cyan-dim);color:var(--cyan);
+    margin-left:8px;vertical-align:1px;
+  }
+  .item .tag.gold{background:rgba(251,191,36,0.12);color:var(--gold)}
+  .item .tag.violet{background:rgba(167,139,250,0.12);color:var(--violet)}
+  .item .tag.green{background:rgba(52,211,153,0.12);color:var(--green)}
+  .item .tag.red{background:rgba(248,113,113,0.12);color:var(--red)}
+  @media(max-width:680px){
+    .year-block{grid-template-columns:1fr;gap:12px}
+    .year-block .year{position:static;font-size:20px}
+    .year-block .year::after{display:none}
+  }
+
+  /* ============================================================
+     TABS (for experience section)
+     ============================================================ */
+  .tab-bar{
+    display:flex;gap:4px;flex-wrap:wrap;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:6px;margin-bottom:32px;
+    width:fit-content;
+  }
+  .tab-bar button{
+    background:transparent;border:0;
+    padding:8px 16px;border-radius:6px;
+    color:var(--muted);
+    font-family:var(--font-mono);font-size:12px;
+    cursor:pointer;transition:var(--transition);
+    letter-spacing:0.05em;
+  }
+  .tab-bar button:hover{color:var(--text)}
+  .tab-bar button.active{
+    background:var(--cyan-dim);color:var(--cyan);
+  }
+  .tab-pane{display:none;animation:fade .35s ease}
+  .tab-pane.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  /* ============================================================
+     CONTACT
+     ============================================================ */
+  .contact-card{
+    background:linear-gradient(135deg,rgba(34,211,238,0.08),rgba(167,139,250,0.08));
+    border:1px solid var(--border-bright);
+    border-radius:14px;
+    padding:48px;
+    text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .contact-card::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 50% 0%,rgba(34,211,238,0.15),transparent 60%);
+    pointer-events:none;
+  }
+  .contact-card .meta{
+    font-family:var(--font-mono);color:var(--cyan);
+    font-size:13px;letter-spacing:0.1em;
+    margin-bottom:14px;
+  }
+  .contact-card h2{
+    font-size:clamp(32px,5vw,48px);
+    font-weight:700;color:var(--text);
+    margin-bottom:14px;letter-spacing:-0.02em;
+  }
+  .contact-card p{max-width:520px;margin:0 auto 32px;color:var(--text-soft)}
+  .contact-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;position:relative}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 22px;border-radius:8px;
+    font-family:var(--font-mono);font-size:13px;
+    border:1px solid var(--border-bright);
+    background:var(--card);color:var(--text);
+    transition:var(--transition);
+  }
+  .btn:hover{
+    border-color:var(--cyan);color:var(--cyan);
+    background:var(--cyan-dim);
+    transform:translateY(-2px);
+  }
+  .btn-primary{
+    background:var(--cyan-dim);color:var(--cyan);border-color:var(--cyan);
+  }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  footer{
+    max-width:1100px;margin:60px auto 0;
+    padding:32px;border-top:1px solid var(--border);
+    display:flex;justify-content:space-between;
+    color:var(--muted);font-family:var(--font-mono);font-size:12px;
+    flex-wrap:wrap;gap:12px;position:relative;z-index:1;
+  }
+  footer .status{display:flex;align-items:center;gap:8px}
+  footer .status::before{
+    content:"";width:8px;height:8px;border-radius:50%;
+    background:var(--green);box-shadow:0 0 8px var(--green);
+    animation:pulse 2s ease-in-out infinite;
+  }
+
+  /* ============================================================
+     REVEAL ON SCROLL
+     ============================================================ */
+  .reveal{opacity:0;transform:translateY(20px);transition:all .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ============================================================
+     RESPONSIVE TWEAKS
+     ============================================================ */
+  @media(max-width:560px){
+    main{padding:0 20px}
+    .nav{padding:14px 20px}
+    section{padding:60px 0}
+    .contact-card{padding:32px 20px}
+  }
+</style>
+</head>
+<body class="no-scroll">
+
+<!-- ============== CLI BOOT LOADER ============== -->
+<div id="boot">
+<pre id="boot-text"></pre>
+</div>
+
+<!-- ============== HEADER ============== -->
+<header>
+  <div class="nav">
+    <div class="brand"><span class="dot"></span>MASON.ZENG</div>
+    <div class="nav-links">
+      <a href="#about">about</a>
+      <a href="#patents">patents</a>
+      <a href="#awards">awards</a>
+      <a href="#courses">courses</a>
+      <a href="#work">work</a>
+      <a href="#talks">talks</a>
+      <a href="#community">community</a>
+      <a href="#contact">contact</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============== HERO ============== -->
+  <section class="hero">
+    <div class="greeting mono">SYSTEM ONLINE · 2026</div>
+    <h1>Mason <span class="gradient">Zeng</span></h1>
+    <h2>曾緯淳 / 資安研究者</h2>
+    <p class="lead">
+      高中生研究者，專注於 <span class="hl">Web 安全</span>、<span class="hl">滲透測試</span>
+      與 <span class="hl">生成式 AI 攻防</span>。<br>
+      持有三項中華民國新型專利，並以攻擊手身份參與國家級資安攻防演練。
+    </p>
+
+    <div class="stats mono">
+      <div class="stat">
+        <div class="num">3</div>
+        <div class="label">Patents</div>
+      </div>
+      <div class="stat">
+        <div class="num">12+</div>
+        <div class="label">CTF / Awards</div>
+      </div>
+      <div class="stat">
+        <div class="num">10+</div>
+        <div class="label">HTB Labs</div>
+      </div>
+      <div class="stat">
+        <div class="num">∞</div>
+        <div class="label">Curiosity</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== ABOUT ============== -->
+  <section id="about" class="reveal">
+    <div class="section-head">
+      <span class="num mono">01 /</span>
+      <h2>About</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          我是 <span class="hl-2">曾緯淳（Mason）</span>，
+          一個對資訊安全與生成式 AI 充滿熱忱的高中生。從程式自動化開始接觸技術，
+          逐步深入 <span class="hl">Web 安全</span>、<span class="hl">密碼學</span>
+          與 <span class="hl">滲透測試</span>。
+        </p>
+        <p>
+          目前就讀 <span class="hl-2">臺北市數位實驗高級中學</span>，
+          擔任 <span class="hl-2">資訊研究社社長</span>、<span class="hl-2">航空研究社副社長</span>，
+          並於 ISIP 跨校資安社團「零日餅乾社」擔任課程組長。
+        </p>
+        <p>
+          喜歡把學到的東西寫成部落格與專題演講分享 — 知識的價值在流通時才會被放大。
+          鍵盤之外，也熱愛無人機空拍、虛擬貨幣研究與旅遊規劃。
+        </p>
+      </div>
+
+      <div class="skill-box">
+        <h3>Programming</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">C++</span>
+        </div>
+        <h3>Cybersecurity</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Web Security</span>
+          <span class="skill-tag">Cryptography</span>
+          <span class="skill-tag">Pentest</span>
+          <span class="skill-tag">AI / LLM Attack</span>
+        </div>
+        <h3>Others</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">網頁前端</span>
+          <span class="skill-tag">網路管理</span>
+          <span class="skill-tag">AI / LLM 應用</span>
+          <span class="skill-tag">專案管理</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== PATENTS ============== -->
+  <section id="patents" class="reveal">
+    <div class="section-head">
+      <span class="num mono">02 /</span>
+      <h2>Patents</h2>
+      <div class="line"></div>
+      <div class="sub">中華民國新型專利 · 3 項</div>
+    </div>
+
+    <div class="patents">
+      <div class="patent">
+        <div class="id mono">▸ M650895</div>
+        <h3>智能化石辨識系統</h3>
+        <p>利用 AI 影像辨識技術自動分類化石樣本，提升古生物研究與教育應用效率。</p>
+      </div>
+      <div class="patent">
+        <div class="id mono">▸ M669931</div>
+        <h3>基於生成式 AI 的智能網頁應用程式防火牆</h3>
+        <p>結合 LLM 與 WAF，動態理解請求語意並阻擋 Web 攻擊，超越傳統規則型防護。</p>
+      </div>
+      <div class="patent">
+        <div class="id mono">▸ M678878</div>
+        <h3>智慧電梯運作系統</h3>
+        <p>透過感測資料與最佳化演算法，動態調整電梯運作排程，降低等待時間與耗能。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== AWARDS (by year) ============== -->
+  <section id="awards" class="reveal">
+    <div class="section-head">
+      <span class="num mono">03 /</span>
+      <h2>Competitions &amp; Awards</h2>
+      <div class="line"></div>
+      <div class="sub">依年度排序 · 最新在上</div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="year-block">
+        <div class="year mono">2026<span class="sub">最新成就</span></div>
+        <div class="year-items">
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>全國高級中等學校小論文競賽<span class="tag gold">優勝</span></h4>
+              <p>資訊類 · 2026/03/13</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>AIS3 pre-exam<span class="tag">第 14 名</span></h4>
+              <p>教育部先進資通安全實務人才培育計畫</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>UMDCTF<span class="tag green">72 / 763</span></h4>
+              <p>公開組 72/763 · 學生組 22/146</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>AIS3 EOF CTF<span class="tag">初賽</span></h4>
+              <p>AIS3 End of the Final 進階資安競賽</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="year-block">
+        <div class="year mono">2025</div>
+        <div class="year-items">
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>IEYI 世界青少年發明展 — 臺灣選拔賽<span class="tag gold">金牌</span></h4>
+              <p>進入台灣代表隊</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>IEYI 世界青少年発明展 — 世界決賽<span class="tag gold">銀牌</span></h4>
+              <p>國際發明展世界決賽</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>CDX 資安攻防推廣交流賽<span class="tag violet">第 5 名</span></h4>
+              <p>全國資安攻防交流賽</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>THJCC CTF<span class="tag">第 29 名</span></h4>
+              <p>第二屆臺灣高中聯合資安競賽</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>MyFirstCTF<span class="tag">第 26 名</span></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="year-block">
+        <div class="year mono">2024<span class="sub">113 學年度</span></div>
+        <div class="year-items">
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>資安技能金盾獎<span class="tag gold">鋒芒畢露獎</span></h4>
+              <p>決賽 · 113 年度</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>資安技能金盾獎<span class="tag">初賽</span></h4>
+              <p>113 年度</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>CGGC 網路守護者挑戰賽<span class="tag">第 27 名</span></h4>
+              <p>初賽</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============== COURSES & CERTS (by year) ============== -->
+  <section id="courses" class="reveal">
+    <div class="section-head">
+      <span class="num mono">04 /</span>
+      <h2>Courses &amp; Certificates</h2>
+      <div class="line"></div>
+      <div class="sub">教育部先進資通安全實務人才培育 · 業界證照</div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="year-block">
+        <div class="year mono">2025<span class="sub">114 學年度</span></div>
+        <div class="year-items">
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>AIS3 課程<span class="tag green">40 小時</span></h4>
+              <p>教育部先進資通安全實務人才培育計畫</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>TAIWAN HolyHigh Training 第十屆<span class="tag gold">高階學員</span></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="year-block">
+        <div class="year mono">2024<span class="sub">113 學年度</span></div>
+        <div class="year-items">
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>AIS3 Junior 新型態高中職資安課程<span class="tag green">33 小時</span></h4>
+            </div>
+          </div>
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>SecurityFocusOnline 2 - 程式安全入門<span class="tag">12 小時</span></h4>
+            </div>
+          </div>
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>TAIWAN HolyYoung Training - Crypto<span class="tag">6 小時</span></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="year-block">
+        <div class="year mono">2023<span class="sub">112 學年度</span></div>
+        <div class="year-items">
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>SecurityFocusOnline 2023<span class="tag">24 小時</span></h4>
+            </div>
+          </div>
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>SecurityFocusOnline 2023<span class="tag">12 小時</span></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="year-block">
+        <div class="year mono">2022</div>
+        <div class="year-items">
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>零時小學校 夏日線上源力增能營</h4>
+              <p>Sch001 for Source Raising</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="year-block">
+        <div class="year mono">Certs<span class="sub">證照</span></div>
+        <div class="year-items">
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>iPAS 資訊安全工程師<span class="tag gold">中級通過</span></h4>
+              <p>經濟部產業人才能力鑑定</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="marker"></div>
+            <div class="body">
+              <h4>HackTheBox<span class="tag green">10+ Labs</span></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============== EXPERIENCE (tabs by category, items by year) ============== -->
+  <section id="work" class="reveal">
+    <div class="section-head">
+      <span class="num mono">05 /</span>
+      <h2>Work &amp; Internship</h2>
+      <div class="line"></div>
+      <div class="sub">工作 / 實習經歷</div>
+    </div>
+
+    <div>
+      <div class="timeline">
+        <div class="year-block">
+          <div class="year mono">2026<span class="sub">115 學年度</span></div>
+          <div class="year-items">
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>臺北市數位實驗高中 學習分享會<span class="tag">資訊組組長</span></h4>
+            </div></div>
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>THJCC CTF<span class="tag violet">出題者</span></h4>
+              <p>第二屆臺灣高中聯合資安競賽</p>
+            </div></div>
+          </div>
+        </div>
+        <div class="year-block">
+          <div class="year mono">2025<span class="sub">114 學年度</span></div>
+          <div class="year-items">
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>行政院國家資通安全網路攻防演練<span class="tag red">攻擊手</span></h4>
+              <p>Red Team · 國家級資安演練</p>
+            </div></div>
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>教育體系資安攻防演練<span class="tag violet">檢測員</span></h4>
+            </div></div>
+          </div>
+        </div>
+        <div class="year-block">
+          <div class="year mono">2024<span class="sub">113 學年度</span></div>
+          <div class="year-items">
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>FHFCTF<span class="tag violet">出題者</span></h4>
+            </div></div>
+          </div>
+        </div>
+        <div class="year-block">
+          <div class="year mono">—</div>
+          <div class="year-items">
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>新興科技教育遠距示範服務計畫<span class="tag">工讀生</span></h4>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </section>
+
+  <!-- ============== TALKS ============== -->
+  <section id="talks" class="reveal">
+    <div class="section-head">
+      <span class="num mono">06 /</span>
+      <h2>Talks</h2>
+      <div class="line"></div>
+      <div class="sub">演講 / 講者經驗</div>
+    </div>
+
+    <div>
+      <div class="timeline">
+        <div class="year-block">
+          <div class="year mono">2026</div>
+          <div class="year-items">
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>前瞻會計與財務專刊暨人工智慧研討會<span class="tag gold">論文發表者</span></h4>
+            </div></div>
+          </div>
+        </div>
+        <div class="year-block">
+          <div class="year mono">資研社<span class="sub">數位實驗高中</span></div>
+          <div class="year-items">
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>AI 與 LLM 攻防應用<span class="tag">專題講者</span></h4>
+            </div></div>
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>甜蜜蜜・秘密密・密碼學<span class="tag">專題講者</span></h4>
+            </div></div>
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>OSINT 開源情報蒐集<span class="tag">專題講者</span></h4>
+            </div></div>
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>帶你從 Kali 來認識 Linux<span class="tag">專題講者</span></h4>
+            </div></div>
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>網頁安全實務 / 初探 CTF 黑魔法<span class="tag">專題講者</span></h4>
+            </div></div>
+          </div>
+        </div>
+        <div class="year-block">
+          <div class="year mono">2024<span class="sub">113 學年度</span></div>
+          <div class="year-items">
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>私立南山高中 遙控飛機社<span class="tag">講師</span></h4>
+            </div></div>
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>聯發科 STEM 造課師研習 AI 工作坊<span class="tag">助教 / 分享</span></h4>
+            </div></div>
+          </div>
+        </div>
+        <div class="year-block">
+          <div class="year mono">2023<span class="sub">112 學年度</span></div>
+          <div class="year-items">
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>聯發科 STEM 造課師研習<span class="tag">分享者</span></h4>
+              <p>ChatGPT × Arduino 自動化</p>
+            </div></div>
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>伴伴學社群分享<span class="tag">分享者</span></h4>
+              <p>ChatGPT × Arduino 初次邂逅 — 流程自動化</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </section>
+
+  <!-- ============== COMMUNITY ============== -->
+  <section id="community" class="reveal">
+    <div class="section-head">
+      <span class="num mono">07 /</span>
+      <h2>Community</h2>
+      <div class="line"></div>
+      <div class="sub">社群 / 社團經驗</div>
+    </div>
+
+    <div>
+      <div class="timeline">
+        <div class="year-block">
+          <div class="year mono">2026</div>
+          <div class="year-items">
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>ZeroDay C00kie 寒訓「Bak3 C00kie」<span class="tag gold">總召</span></h4>
+            </div></div>
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>SITCON 學生計算機年會<span class="tag green">場務組</span></h4>
+            </div></div>
+          </div>
+        </div>
+        <div class="year-block">
+          <div class="year mono">2025</div>
+          <div class="year-items">
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>HITCON Cyber Range<span class="tag green">場務組</span></h4>
+            </div></div>
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>AIS3 CLUB 高中職學生程式安全黑客松工作坊</h4>
+            </div></div>
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>SCINT「資所未見」四校資訊社團聯合工作坊</h4>
+            </div></div>
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>HITCON 臺灣駭客年會<span class="tag">會眾</span></h4>
+            </div></div>
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>CYBERSEC 臺灣資安大會<span class="tag">會眾</span></h4>
+            </div></div>
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>SITCON 學生計算機年會<span class="tag">會眾</span></h4>
+            </div></div>
+          </div>
+        </div>
+        <div class="year-block">
+          <div class="year mono">2024</div>
+          <div class="year-items">
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>HITCON Cyber Range<span class="tag">會眾</span></h4>
+            </div></div>
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>SCINT 北臺灣學生資訊社群 CVE 漏洞實作工作坊</h4>
+            </div></div>
+          </div>
+        </div>
+        <div class="year-block">
+          <div class="year mono">在學中<span class="sub">社員 / 幹部</span></div>
+          <div class="year-items">
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>ISIP ZeroDay C00kie 零日餅乾社<span class="tag violet">課程組長</span></h4>
+              <p>高中職跨校資安社團</p>
+            </div></div>
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>國立臺灣科技大學 資訊安全研究社<span class="tag">社員</span></h4>
+            </div></div>
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>數位實驗高中 創客社 / 模型研究社<span class="tag">社員</span></h4>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </section>
+
+  <!-- ============== LEADERSHIP ============== -->
+  <section id="leadership" class="reveal">
+    <div class="section-head">
+      <span class="num mono">08 /</span>
+      <h2>Leadership</h2>
+      <div class="line"></div>
+      <div class="sub">幹部經歷</div>
+    </div>
+
+    <div>
+      <div class="timeline">
+        <div class="year-block">
+          <div class="year mono">2025<span class="sub">114 學年度</span></div>
+          <div class="year-items">
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>臺北市數位實驗高中 資訊研究社<span class="tag gold">社長</span></h4>
+            </div></div>
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>臺北市數位實驗高中 航空研究社<span class="tag gold">副社長</span></h4>
+            </div></div>
+          </div>
+        </div>
+        <div class="year-block">
+          <div class="year mono">2023<span class="sub">112 學年度</span></div>
+          <div class="year-items">
+            <div class="item"><div class="marker"></div><div class="body">
+              <h4>臺北市數位實驗高中 小老師<span class="tag violet">資安培訓</span></h4>
+              <p>資安競賽培訓・網頁程式設計・生活科技</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CONTACT ============== -->
+  <section id="contact" class="reveal">
+    <div class="section-head">
+      <span class="num mono">09 /</span>
+      <h2>Contact</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="contact-card">
+      <div class="meta mono">// LET'S TALK</div>
+      <h2>Have an idea? Drop me a line.</h2>
+      <p>
+        無論是想討論資安研究、合作專題、邀請演講，或單純想認識新朋友 —
+        我的信箱永遠開放。
+      </p>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:ohmygodmason@gmail.com">→ ohmygodmason@gmail.com</a>
+        <a class="btn" href="https://github.com/masonzeng702550" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://masonlifemaker.medium.com/" target="_blank" rel="noopener">Blog</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="status">SESSION ACTIVE · 2026</div>
+  <div>© Mason Zeng / 曾緯淳</div>
+</footer>
+
+<script>
+  // ============ CLI BOOT SEQUENCE ============
+  const lines = [
+    { t:'[<span class="ok">  OK  </span>] Booting <span class="label">mason@portfolio</span>', d:120 },
+    { t:'[<span class="ok">  OK  </span>] Loading user: <span class="label">曾緯淳 (Mason Zeng)</span>', d:140 },
+    { t:'[<span class="ok">  OK  </span>] Patents indexed: <span class="label">3</span>', d:120 },
+    { t:'[<span class="ok">  OK  </span>] Achievements indexed: <span class="label">12+</span>', d:120 },
+    { t:'[<span class="warn"> WARN </span>] LLM jailbreak detector: <span class="label">enabled</span>', d:140 },
+    { t:'[<span class="ok">  OK  </span>] Reached target <span class="label">portfolio.target</span>', d:160 },
+    { t:'', d:120 },
+    { t:'<span class="dim">Last login: 2026-05-29 from 0.0.0.0</span>', d:180 },
+  ];
+  const bootEl = document.getElementById('boot-text');
+  let i = 0;
+  function next() {
+    if (i >= lines.length) {
+      setTimeout(() => {
+        document.getElementById('boot').classList.add('done');
+        document.body.classList.remove('no-scroll');
+      }, 350);
+      return;
+    }
+    const ln = lines[i++];
+    bootEl.innerHTML += ln.t + '\n';
+    setTimeout(next, ln.d);
+  }
+  window.addEventListener('load', () => setTimeout(next, 200));
+
+  // ============ HEADER SCROLL ============
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 30) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  });
+
+  // ============ TABS ============
+  const btns = document.querySelectorAll('.tab-bar button');
+  const panes = document.querySelectorAll('.tab-pane');
+  btns.forEach(b => b.addEventListener('click', () => {
+    btns.forEach(x => x.classList.remove('active'));
+    panes.forEach(p => p.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById('tab-' + b.dataset.tab).classList.add('active');
+  }));
+
+  // ============ REVEAL ============
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
