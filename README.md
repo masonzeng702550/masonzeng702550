@@ -19,7 +19,7 @@
 
 </div>
 
-<!-- ░▒▓ SNAKE DIVIDER ▓▒░ -->
+<!-- ░▒▓ FLIGHT-MAP DIVIDER ▓▒░ -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map-dark.svg" />
   <img src="https://raw.githubusercontent.com/masonzeng702550/masonzeng702550/main/assets/flight-map.svg" width="100%" alt="airplane flying across a contribution-dot world map" />
@@ -33,15 +33,16 @@ const mason = {
   age:      16,
   location: "Taiwan 🇹🇼",
   school:   "T-School (實驗教育)",
-  stack:    ["Python", "TypeScript", "Swift", "Flask", "Next.js", "ESP32"],
+  stack:    ["Python", "TypeScript", "Swift", "Solidity", "Flask", "Next.js", "ESP32"],
   hacks:    {
-    security:    ["AIS3 ICS Hardware Track", "Prompt-Injection Firewall", "cve-hunter"],
+    security:    ["AIS3 ICS Hardware Track", "AI-Agent Security Scanners", "Solidity Vault", "Cross-chain Forensics"],
     ctf_author:  ["FHFCTF 2024", "FHFCTF 2025", "Tschool Learning Fair"],
-    hardware:    ["IEYI 2025 Elevator Sim", "ChatGPT × Arduino", "Mood-driven Drinking Machine"],
-    aviation:    ["VOXATC AI Tower", "ATIS-Monster", "Working toward PPL"],
-    climate:     ["Trashform Recycling AI", "SDGs Urban Green-Corridor", "Precision Recycling"],
-    japan:       ["Ookini KOK — Kansai 25-rail Map", "Stitch Kansai Neon Map"],
+    hardware:    ["IEYI 2025 Elevator Sim", "Taiwan Bus LCD", "ChatGPT × Arduino"],
+    aviation:    ["VOXATC AI Tower", "ATIS-Monster", "MSFS Flight Globe", "Working toward PPL"],
+    climate:     ["Trashform Recycling AI", "Denki-Incense AR", "SDGs Urban Green-Corridor"],
+    japan:       ["Ookini KOK — Kansai 25-rail Map", "BVE Shiomi Line"],
   },
+  writing:  "masonlifemaker.medium.com",
   motto:    "Break things → understand them → rebuild them better.",
 };
 ```
@@ -56,6 +57,7 @@ const mason = {
 ![TypeScript](https://img.shields.io/badge/TypeScript-0f2027?style=for-the-badge&logo=typescript&logoColor=00c9a7)
 ![JavaScript](https://img.shields.io/badge/JavaScript-0f2027?style=for-the-badge&logo=javascript&logoColor=00c9a7)
 ![Swift](https://img.shields.io/badge/Swift-0f2027?style=for-the-badge&logo=swift&logoColor=00c9a7)
+![Solidity](https://img.shields.io/badge/Solidity-0f2027?style=for-the-badge&logo=solidity&logoColor=00c9a7)
 ![C++](https://img.shields.io/badge/C++-0f2027?style=for-the-badge&logo=cplusplus&logoColor=00c9a7)
 ![HTML5](https://img.shields.io/badge/HTML5-0f2027?style=for-the-badge&logo=html5&logoColor=00c9a7)
 
@@ -63,6 +65,7 @@ const mason = {
 
 ![Flask](https://img.shields.io/badge/Flask-0f2027?style=for-the-badge&logo=flask&logoColor=00c9a7)
 ![Next.js](https://img.shields.io/badge/Next.js-0f2027?style=for-the-badge&logo=nextdotjs&logoColor=00c9a7)
+![SvelteKit](https://img.shields.io/badge/SvelteKit-0f2027?style=for-the-badge&logo=svelte&logoColor=00c9a7)
 ![Node.js](https://img.shields.io/badge/Node.js-0f2027?style=for-the-badge&logo=nodedotjs&logoColor=00c9a7)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0f2027?style=for-the-badge&logo=fastapi&logoColor=00c9a7)
 ![Vercel](https://img.shields.io/badge/Vercel-0f2027?style=for-the-badge&logo=vercel&logoColor=00c9a7)
@@ -74,8 +77,9 @@ const mason = {
 ![Gemini](https://img.shields.io/badge/Gemini-0f2027?style=for-the-badge&logo=googlegemini&logoColor=00c9a7)
 ![Groq](https://img.shields.io/badge/Groq-0f2027?style=for-the-badge&logoColor=00c9a7)
 
-**Hardware / Embedded**
+**Security / Hardware**
 
+![Foundry](https://img.shields.io/badge/Foundry-0f2027?style=for-the-badge&logo=foundry&logoColor=00c9a7)
 ![ESP32](https://img.shields.io/badge/ESP32-0f2027?style=for-the-badge&logo=espressif&logoColor=00c9a7)
 ![Arduino](https://img.shields.io/badge/Arduino-0f2027?style=for-the-badge&logo=arduino&logoColor=00c9a7)
 ![Raspberry Pi](https://img.shields.io/badge/Raspberry%20Pi-0f2027?style=for-the-badge&logo=raspberrypi&logoColor=00c9a7)
@@ -89,11 +93,12 @@ const mason = {
 <td width="50%" valign="top">
 
 ### 🔐 Cybersecurity
-> _Offensive research · ICS · LLM defense._
+> _Offensive research · ICS · AI-agent & avionics security._
 
 - **[AIS3 ESP32 ICS Simulator](https://github.com/masonzeng702550/AIS3-ESP32-ICS-Simulator-Hardware-Control)** — 工控資安硬體靶機（AIS3 課程）
-- **[LLM-Firewall: 1njector Benchmark](https://github.com/masonzeng702550/LLM-Firewall-1njector-Benchmark)** — 多模型並行 Prompt Injection 偵測
-- **cve-hunter** — AI-driven CVE 探勘引擎 (WIP)
+- **[secure-vault-solidity](https://github.com/masonzeng702550/secure-vault-solidity)** — 多層防禦 ETH 金庫，14/14 Foundry 測試（含真實重入攻擊）
+- **[verus-bridge-forensics](https://github.com/masonzeng702550/verus-bridge-forensics)** — 跨鏈橋攻擊．鏈上＋原碼雙軌鑑識報告
+- 🔒 _Private R&D_ — `trifecta-static`、`ai-inject-scan`、`webauthn-rp-scanner`、`arinc-guard`（AI-agent／FIDO2／航電匯流排掃描器）
 
 </td>
 <td width="50%" valign="top">
@@ -102,8 +107,8 @@ const mason = {
 > _Designing puzzles that don't suck._
 
 - **[I'm Python, NOT snake](https://github.com/masonzeng702550/I-m-_Python-_NOT_snake)** — FHFCTF web 題
-- **Last Christmas I Gave You My Flag** — FHFCTF crypto 題
-- **Tschool Learning Sharing Fair Challenge** — 校園 CTF 關卡網站
+- **FHFCTF 2024 / 2025** — web & crypto 出題者
+- 🔒 `signaldecode` — CTF 音訊／訊號自動解碼流水線 (private)
 
 </td>
 </tr>
@@ -114,9 +119,9 @@ const mason = {
 > _If it has a CPU, I'll talk to it._
 
 - **[Elevator Car Sim @ IEYI 2025](https://github.com/masonzeng702550/Elevator-Car-Simulation-Module_for_IEYI2025)** — 國際發明展作品
-- **[ChatGPT Arduino Generator](https://github.com/masonzeng702550/chatgpt_arduino_program_creater)** — 自動寫 Arduino 程式
-- **[Mood Drinking Machine](https://github.com/masonzeng702550/ChatGPT_mood_selector_drinking_machine)** — 用心情點飲料的硬體
+- **[Taiwan Bus Display](https://github.com/masonzeng702550/taiwan-bus-display)** — 巴士車內 LCD ＋ 中英日三語報站
 - **[free-SlapMac](https://github.com/masonzeng702550/free-SlapMac)** — 拍打 MacBook 它就慘叫（Swift）
+- **[keep-awake](https://github.com/masonzeng702550/keep-awake)** — 防休眠 mac 小工具
 
 </td>
 <td width="50%" valign="top">
@@ -124,9 +129,11 @@ const mason = {
 ### ✈️ Aviation
 > _Student pilot. Building tools I actually want to use._
 
-- **[VOXATC](https://github.com/masonzeng702550/VOXATC-voice_air_traffic_communication_trainer)** — AI 塔台無線電對話訓練（ICAO 標準）
-- **[ATIS-Monster](https://github.com/masonzeng702550/ATIS-Monster)** — 即時 ATIS 翻譯 + 天氣視覺化（Gemini）
-- Currently working toward **PPL** 🛩️
+- **[VOXATC](https://github.com/masonzeng702550/VOXATC-voice_air_traffic_communication_trainer)** — AI 塔台無線電訓練（ICAO 標準）
+- **[ATIS-Monster](https://github.com/masonzeng702550/ATIS-Monster)** — 即時 ATIS 翻譯＋天氣視覺化（Gemini）
+- **[MSFS Flight Logbook](https://github.com/masonzeng702550/my.msfs-flightlog24.com)** — 飛行紀錄互動地球
+- **[vtsim-web](https://github.com/masonzeng702550/vtsim-web)** — 維也納測驗（飛行員潛質）模擬器
+- 🔒 `tpe-fir-atc-sim`、`DICAGO` (WIP) · Working toward **PPL** 🛩️
 
 </td>
 </tr>
@@ -134,11 +141,11 @@ const mason = {
 <td width="50%" valign="top">
 
 ### 🌱 Climate & Environment
-> _Computer vision for waste, urban ecology research._
+> _Computer vision for waste, urban ecology._
 
 - **[recycle-ai-tw / Trashform v2](https://github.com/masonzeng702550/recycle-ai-tw)** — AI 影像辨識台灣資源回收（北高雙制）
+- **[incense / 環保電子香](https://github.com/masonzeng702550/incense)** — 無煙數位上香 web app（AR／NFC／擲筊）
 - **SDGs 城市綠地連通性提案** — Solve for Tomorrow 2026 入圍
-- **Precision Recycling AI** — 高精度垃圾分類研究
 
 </td>
 <td width="50%" valign="top">
@@ -146,26 +153,37 @@ const mason = {
 ### 🗾 Japan Travel
 > _Train-nerd × map-nerd. Kansai is home base._
 
-- **[ookini KOK](https://github.com/masonzeng702550/ookini-kok)** — 関西旅遊互動地圖（大阪・京都・神戶・奈良・関空 + 25 條鐵路）
-- **Stitch Kansai Neon Travel Map** — 個人手繪霓虹風関西地圖
+- **[ookini KOK](https://github.com/masonzeng702550/ookini-kok)** — 関西互動地圖（大阪・京都・神戶・奈良・関空 ＋ 25 條鐵路）
+- **[bve5-shiomi-line](https://github.com/masonzeng702550/bve5-shiomi-line)** — 汐見線．BVE Trainsim 虛構路線（27.4km・12 站）
 - **Open to**: 一緒に乗り鉄 🚆
 
 </td>
 </tr>
 </table>
 
-## `>` open-source
+## `>` pinned
 
 <div align="center">
 
-[![Studookimg](https://github-readme-stats-roan-five.vercel.app/api/pin/?username=masonzeng702550&repo=Studookimg-Hub-OSS&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/Studookimg-Hub-OSS)
-[![ookini-kok](https://github-readme-stats-roan-five.vercel.app/api/pin/?username=masonzeng702550&repo=ookini-kok&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/ookini-kok)
-[![VOXATC](https://github-readme-stats-roan-five.vercel.app/api/pin/?username=masonzeng702550&repo=VOXATC-voice_air_traffic_communication_trainer&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/VOXATC-voice_air_traffic_communication_trainer)
-[![ATIS-Monster](https://github-readme-stats-roan-five.vercel.app/api/pin/?username=masonzeng702550&repo=ATIS-Monster&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/ATIS-Monster)
 [![recycle-ai-tw](https://github-readme-stats-roan-five.vercel.app/api/pin/?username=masonzeng702550&repo=recycle-ai-tw&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/recycle-ai-tw)
-[![Simple-JSON-Quiz-Tool](https://github-readme-stats-roan-five.vercel.app/api/pin/?username=masonzeng702550&repo=Simple-JSON-Quiz-Tool&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/Simple-JSON-Quiz-Tool)
+[![VOXATC](https://github-readme-stats-roan-five.vercel.app/api/pin/?username=masonzeng702550&repo=VOXATC-voice_air_traffic_communication_trainer&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/VOXATC-voice_air_traffic_communication_trainer)
+[![verus-bridge-forensics](https://github-readme-stats-roan-five.vercel.app/api/pin/?username=masonzeng702550&repo=verus-bridge-forensics&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/verus-bridge-forensics)
+[![incense](https://github-readme-stats-roan-five.vercel.app/api/pin/?username=masonzeng702550&repo=incense&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/incense)
+[![my.msfs-flightlog24.com](https://github-readme-stats-roan-five.vercel.app/api/pin/?username=masonzeng702550&repo=my.msfs-flightlog24.com&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/my.msfs-flightlog24.com)
+[![ookini-kok](https://github-readme-stats-roan-five.vercel.app/api/pin/?username=masonzeng702550&repo=ookini-kok&theme=midnight-purple&bg_color=0f2027&title_color=00c9a7&icon_color=00c9a7&text_color=ffffff&border_color=00c9a7)](https://github.com/masonzeng702550/ookini-kok)
 
 </div>
+
+## `>` writing
+
+<div align="center">
+
+> _轉型中 — 把單一互動履歷頁擴充成長文部落格。_
+
+</div>
+
+- ✍️ **[Medium — masonlifemaker](https://masonlifemaker.medium.com)** — 資安、航空、氣候的實作筆記
+- 🌐 **[about.html](https://masonzeng702550.github.io/masonzeng702550/about.html)** — 互動式個人履歷頁（即將擴充為部落格）
 
 ## `>` stats
 
@@ -196,7 +214,7 @@ const mason = {
   <img src="https://img.shields.io/badge/Email-0f2027?style=for-the-badge&logo=gmail&logoColor=00c9a7" />
 </a>
 <a href="https://masonlifemaker.medium.com">
-  <img src="https://img.shields.io/badge/Medium-0f2027?style=for-the-badge&logo=medium&logoColor=00c9a7" />
+  <img src="https://img.shields.io/badge/Blog-0f2027?style=for-the-badge&logo=medium&logoColor=00c9a7" />
 </a>
 <a href="https://github.com/masonzeng702550">
   <img src="https://img.shields.io/badge/GitHub-0f2027?style=for-the-badge&logo=github&logoColor=00c9a7" />
