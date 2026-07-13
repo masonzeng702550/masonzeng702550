@@ -82,6 +82,33 @@
   </div>
 </section>
 
+<section class="home-block reveal">
+  <div class="hb-head"><span class="hb-k">§ LIVE</span><h2>作品預覽</h2><span class="hb-note">即時網站截圖・點擊開啟</span></div>
+  <%
+    var demos = [
+      { n: 'recycle-ai-tw', d: 'Trashform 影像辨識回收', u: 'https://recycle-ai-tw.vercel.app', img: '/images/previews/recycle-ai-tw.png' },
+      { n: 'Treehouse Booking', d: 'T-School 樹屋借用系統', u: 'https://treehouse-booking.vercel.app', img: '/images/previews/treehouse.png' },
+      { n: 'T-Skyler Airlines', d: '航空訂票 / 機票產生器', u: 'https://t-skyler-airlines.github.io/', img: '/images/previews/tskyler.png' },
+      { n: 'Aircraft Marshaller', d: '飛機地面導引員模擬', u: 'https://masonzeng702550.github.io/aircraft-marshaller/', img: '/images/previews/marshaller.png' },
+      { n: 'MSFS Flight Logbook', d: '飛行紀錄互動地球', u: 'https://masonzeng702550.github.io/my.msfs-flightlog24.com/', img: '/images/previews/msfs.png' },
+      { n: 'vtsim-web', d: '維也納測驗模擬器', u: 'https://masonzeng702550.github.io/vtsim-web/', img: '/images/previews/vtsim.png' },
+      { n: 'DICAGO', d: '航空英語 ICAO 訓練', u: 'https://masonzeng702550.github.io/DICAGO/', img: '/images/previews/dicago.png' },
+      { n: "I'm Python, NOT snake", d: '換色貪食蛇 CTF 網頁', u: 'https://masonzeng702550.github.io/I-m-_Python-_NOT_snake/', img: '/images/previews/snake.png' },
+      { n: 'J50ANESE', d: '日文五十音學習', u: 'https://masonzeng702550.github.io/J50ANESE/', img: '/images/previews/j50anese.png' },
+      { n: 'tschool_web', d: 'T-School 招生官網', u: 'https://masonzeng702550.github.io/tschool_web/', img: '/images/previews/tschoolweb.png' }
+    ];
+  %>
+  <div class="demo-grid">
+  <% demos.forEach(function (p) { var host = p.u.replace(/^https?:\/\//, '').replace(/\/$/, ''); %>
+    <a class="demo-card reveal" href="<%= p.u %>" target="_blank" rel="noopener">
+      <div class="demo-bar"><span class="dd r"></span><span class="dd y"></span><span class="dd g"></span><span class="demo-addr"><%= host %></span></div>
+      <div class="demo-shot"><img loading="lazy" alt="<%= p.n %> 網站預覽" src="<%- url_for(p.img) %>"></div>
+      <div class="demo-cap"><span class="demo-name"><%= p.n %></span><span class="demo-desc"><%= p.d %></span></div>
+    </a>
+  <% }) %>
+  </div>
+</section>
+
 <!-- whole-page auto translation via Google Website Translator, driven by the 中/EN/日 buttons -->
 <div id="google_translate_element" aria-hidden="true"></div>
 <script>
