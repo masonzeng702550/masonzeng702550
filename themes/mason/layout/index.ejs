@@ -1,24 +1,53 @@
-<div class="list-head">
-  <div class="k">Mason.log</div>
-  <h1><%= config.subtitle || '文章列表' %></h1>
-</div>
-<div class="post-list">
-<% page.posts.each(function (post) { %>
-  <a class="pcard reveal" href="<%- url_for(post.path) %>">
-    <div class="pdate"><%= date(post.date, 'YYYY-MM-DD') %></div>
-    <div class="ptitle"><%= post.title %></div>
-    <% if (post.excerpt) { %><div class="pexcerpt"><%= post.excerpt %></div><% } %>
-    <div class="pmeta">
-      <% if (post.categories && post.categories.length) { post.categories.forEach(function (c) { %><span><%= c.name %></span><% }) } %>
-      <% if (post.tags && post.tags.length) { post.tags.forEach(function (t) { %><span>#<%= t.name %></span><% }) } %>
-    </div>
-  </a>
-<% }) %>
-</div>
-<% if (page.total > 1) { %>
-<div class="pager">
-  <% if (page.prev) { %><a href="<%- url_for(page.prev_link) %>">← 新</a><% } else { %><span>← 新</span><% } %>
-  <span><%= page.current %> / <%= page.total %></span>
-  <% if (page.next) { %><a href="<%- url_for(page.next_link) %>">舊 →</a><% } else { %><span>舊 →</span><% } %>
-</div>
-<% } %>
+<section class="home-hero reveal">
+  <div class="hh-tag">~/ whoami</div>
+  <h1 class="hh-title"><%= config.title %></h1>
+  <p class="hh-sub"><%= config.subtitle %></p>
+  <p class="hh-bio"><%= config.bio %></p>
+  <div class="hh-cta">
+    <a class="btn primary" href="<%- url_for('/posts/') %>">讀文章</a>
+    <a class="btn" href="<%- url_for('/projects/') %>">看專案</a>
+    <a class="btn" href="<%- url_for('/about/') %>">關於我</a>
+  </div>
+</section>
+
+<section class="home-block reveal">
+  <div class="hb-head"><span class="hb-k">§ FEATURED</span><h2>精選文章</h2><a class="hb-more" href="<%- url_for('/posts/') %>">全部</a></div>
+  <div class="post-list">
+  <% site.posts.sort('date', -1).limit(4).each(function (post) { %>
+    <a class="pcard reveal" href="<%- url_for(post.path) %>">
+      <div class="pdate"><%= date(post.date, 'YYYY-MM-DD') %></div>
+      <div class="ptitle"><%= post.title %></div>
+      <% if (post.excerpt) { %><div class="pexcerpt"><%= post.excerpt %></div><% } %>
+      <div class="pmeta">
+        <% post.categories.each(function (c) { %><span><%= c.name %></span><% }) %>
+        <% post.tags.each(function (t) { %><span>#<%= t.name %></span><% }) %>
+      </div>
+    </a>
+  <% }) %>
+  </div>
+</section>
+
+<section class="home-block reveal">
+  <div class="hb-head"><span class="hb-k">§ TOPICS</span><h2>分類</h2><span class="hb-note">泡泡越大 = 文章越多</span></div>
+  <div class="bubbles">
+  <%
+    var maxc = 1;
+    site.categories.each(function (c) { if (c.length > maxc) maxc = c.length; });
+    var pal = ['cyan','violet','green','gold'];
+    var idx = 0;
+  %>
+  <% site.categories.sort('length', -1).each(function (c) {
+       var scale = 0.95 + (c.length / maxc) * 1.35;
+       var col = pal[idx % pal.length]; idx++;
+  %>
+    <a class="bubble b-<%= col %>" href="<%- url_for(c.path) %>" style="font-size: <%= scale.toFixed(2) %>rem">
+      <span class="b-name"><%= c.name %></span><span class="b-count"><%= c.length %></span>
+    </a>
+  <% }) %>
+  <% site.tags.sort('length', -1).limit(12).each(function (tg) {
+       var scale = 0.85 + (tg.length / maxc) * 0.7;
+  %>
+    <a class="bubble b-tag" href="<%- url_for(tg.path) %>" style="font-size: <%= scale.toFixed(2) %>rem">#<%= tg.name %></a>
+  <% }) %>
+  </div>
+</section>

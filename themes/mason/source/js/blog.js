@@ -56,4 +56,26 @@
       cb.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.12)' }, { transform: 'scale(1)' }], { duration: 200 });
     };
   }
+
+  // posts page: timeline / category toggle
+  var toggle = document.querySelector('.posts-toggle');
+  if (toggle) {
+    toggle.querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        toggle.querySelectorAll('button').forEach(function (x) { x.classList.remove('active'); });
+        b.classList.add('active');
+        var v = b.getAttribute('data-v');
+        document.getElementById('view-time').hidden = (v !== 'time');
+        document.getElementById('view-cat').hidden = (v !== 'cat');
+      });
+    });
+  }
+
+  // close mobile nav after clicking a link
+  var navToggle = document.getElementById('navtoggle');
+  if (navToggle) {
+    document.querySelectorAll('.nav-links a').forEach(function (a) {
+      a.addEventListener('click', function () { navToggle.checked = false; });
+    });
+  }
 })();

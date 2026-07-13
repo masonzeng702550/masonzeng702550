@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title><%= (typeof page !== 'undefined' && page.title ? page.title + ' · ' : '') + config.title %></title>
-<% if (typeof page !== 'undefined' && page.excerpt){ %><meta name="description" content="<%= page.excerpt %>"><% } %>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="<%- url_for('/css/style.css') %>">
+<%- partial('_partial/head') %>
 </head>
 <body>
 <div class="progress"></div>
-<header class="site-header"><div class="nav">
-  <a class="brand" href="<%- url_for('/') %>"><span class="dot"></span><%= config.title %></a>
-  <nav class="nav-links">
-    <a href="<%- url_for('/') %>">Home</a>
-    <a href="<%- url_for('/archives/') %>">Archives</a>
-  </nav>
-</div></header>
+<header class="site-header">
+  <div class="nav">
+    <a class="brand" href="<%- url_for('/') %>"><span class="dot"></span><%= config.title %></a>
+    <input type="checkbox" id="navtoggle" class="navtoggle" hidden>
+    <label for="navtoggle" class="hamburger" aria-label="menu"><span></span><span></span><span></span></label>
+    <nav class="nav-links">
+      <a href="<%- url_for('/') %>">首頁</a>
+      <a href="<%- url_for('/posts/') %>">文章</a>
+      <a href="<%- url_for('/projects/') %>">專案</a>
+      <a href="<%- url_for('/about/') %>">關於</a>
+      <a href="<%- url_for('/search/') %>">搜尋</a>
+    </nav>
+  </div>
+</header>
 <main class="wrap"><%- body %></main>
-<footer class="site-footer"><%= config.title %> · Break things -&gt; understand them -&gt; rebuild them better.</footer>
-<button class="totop">↑</button>
+<footer class="site-footer">
+  <div class="foot-inner">
+    <span class="foot-brand"><%= config.title %></span>
+    <span class="foot-count">
+      <span id="busuanzi_container_site_pv">總瀏覽 <span id="busuanzi_value_site_pv">–</span></span>
+      · <span id="busuanzi_container_site_uv">訪客 <span id="busuanzi_value_site_uv">–</span></span>
+    </span>
+    <span class="foot-motto">Break things, understand them, rebuild them better.</span>
+  </div>
+</footer>
+<button class="totop" aria-label="top">↑</button>
+<script defer src="https://cn.vercount.one/js"></script>
 <script src="<%- url_for('/js/blog.js') %>"></script>
 </body>
 </html>

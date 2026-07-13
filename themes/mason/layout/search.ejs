@@ -1,0 +1,31 @@
+<div class="page-head reveal">
+  <span class="ph-k">§ SEARCH</span>
+  <h1><%= page.title || '搜尋全站' %></h1>
+</div>
+<div class="search-wrap reveal">
+  <input type="search" id="sq" class="search-box" placeholder="輸入關鍵字，例如：特選、CTF、航空…" autofocus autocomplete="off">
+  <div id="scount" class="search-count"></div>
+  <div id="sresults" class="search-results"></div>
+</div>
+<script>
+(function () {
+  var ROOT = '<%- config.root %>';
+  var box = document.getElementById('sq'), out = document.getElementById('sresults'), cnt = document.getElementById('scount'), data = null;
+  fetch(ROOT.replace(/\/$/, '') + '/search.json').then(function (r) { return r.json(); }).then(function (d) { data = d; run(); });
+  function esc(s) { return (s || '').replace(/[&<>]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]; }); }
+  function link(u) { if (/^https?:/.test(u)) return u; u = u.replace(/^\//, ''); return ROOT.replace(/\/$/, '') + '/' + u; }
+  function run() {
+    var q = box.value.trim().toLowerCase();
+    if (!data) { return; }
+    if (q.length < 1) { out.innerHTML = ''; cnt.textContent = ''; return; }
+    var res = data.filter(function (p) { return (p.title + ' ' + (p.content || '')).toLowerCase().indexOf(q) >= 0; }).slice(0, 25);
+    cnt.textContent = res.length + ' 個結果';
+    out.innerHTML = res.length ? res.map(function (p) {
+      var c = (p.content || ''), i = c.toLowerCase().indexOf(q);
+      var snip = i >= 0 ? c.substr(Math.max(0, i - 30), 140) : c.substr(0, 140);
+      return '<a class="sr" href="' + link(p.url) + '"><div class="sr-t">' + esc(p.title) + '</div><div class="sr-s">…' + esc(snip) + '…</div></a>';
+    }).join('') : '<div class="sr-empty">沒有符合「' + esc(box.value) + '」的結果</div>';
+  }
+  box.addEventListener('input', run);
+})();
+</script>

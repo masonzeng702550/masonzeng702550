@@ -1,0 +1,39 @@
+<%
+  var isPost = (typeof page !== 'undefined' && page.layout === 'post');
+  var pageTitle = (typeof page !== 'undefined' && page.title ? page.title + ' · ' : '') + config.title;
+  var desc = ((typeof page !== 'undefined' && (page.excerpt || page.description)) || config.description || '').replace(/\s+/g,' ').trim();
+  var here = (typeof page !== 'undefined' && page.path) ? page.path : '';
+  var canonical = config.url.replace(/\/$/,'') + url_for('/' + here);
+  var cover = (typeof page !== 'undefined' && page.cover) ? page.cover : '/images/demo/cover.jpeg';
+  var ogImage = config.url.replace(/\/$/,'') + url_for(cover);
+%>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><%= pageTitle %></title>
+<meta name="description" content="<%= desc %>">
+<meta name="keywords" content="<%= config.keywords || '' %>">
+<meta name="author" content="<%= config.author %>">
+<link rel="canonical" href="<%= canonical %>">
+<meta property="og:type" content="<%= isPost ? 'article' : 'website' %>">
+<meta property="og:title" content="<%= pageTitle %>">
+<meta property="og:description" content="<%= desc %>">
+<meta property="og:url" content="<%= canonical %>">
+<meta property="og:image" content="<%= ogImage %>">
+<meta property="og:site_name" content="<%= config.title %>">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<%= pageTitle %>">
+<meta name="twitter:description" content="<%= desc %>">
+<meta name="twitter:image" content="<%= ogImage %>">
+<% if (isPost) { %>
+<meta property="article:published_time" content="<%= date_xml(page.date) %>">
+<meta property="article:modified_time" content="<%= date_xml(page.updated || page.date) %>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":<%- JSON.stringify(page.title) %>,"datePublished":"<%= date_xml(page.date) %>","dateModified":"<%= date_xml(page.updated || page.date) %>","author":{"@type":"Person","name":<%- JSON.stringify(config.author) %>},"image":<%- JSON.stringify(ogImage) %>,"mainEntityOfPage":<%- JSON.stringify(canonical) %>,"description":<%- JSON.stringify(desc) %>}
+</script>
+<% } %>
+<link rel="alternate" type="application/atom+xml" title="<%= config.title %>" href="<%- url_for('/atom.xml') %>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="<%- url_for('/css/style.css') %>">

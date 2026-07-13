@@ -1,0 +1,218 @@
+[
+ {
+  "name": "verus-bridge-forensics",
+  "domain": "資安",
+  "desc": "On-chain + source-code dual-track forensics of the 2026-05-18 Verus and Ethereum cross-chain bridge attack. Final report (DOCX/PDF/MD) with A/B/C evidence grading.",
+  "lang": "",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/verus-bridge-forensics"
+ },
+ {
+  "name": "secure-vault-solidity",
+  "domain": "資安",
+  "desc": "Secure Solidity ETH vault with multi-layered defense against common smart contract attacks. Built and tested with Foundry — 14/14 tests passing including real reentrancy attacker.",
+  "lang": "Solidity",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/secure-vault-solidity"
+ },
+ {
+  "name": "AIS3-ESP32-ICS-Simulator-Hardware-Control",
+  "domain": "資安",
+  "desc": "",
+  "lang": "Python",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/AIS3-ESP32-ICS-Simulator-Hardware-Control"
+ },
+ {
+  "name": "I-m-_Python-_NOT_snake",
+  "domain": "CTF",
+  "desc": "FHFCTF",
+  "lang": "JavaScript",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/I-m-_Python-_NOT_snake"
+ },
+ {
+  "name": "taiwan-bus-display",
+  "domain": "軟硬體",
+  "desc": "台灣巴士車內資訊顯示系統 — Taiwan bus in-vehicle LCD display & tri-lingual (中/英/日) announcement system",
+  "lang": "TypeScript",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/taiwan-bus-display"
+ },
+ {
+  "name": "keep-awake",
+  "domain": "軟硬體",
+  "desc": "",
+  "lang": "PowerShell",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/keep-awake"
+ },
+ {
+  "name": "free-SlapMac",
+  "domain": "軟硬體",
+  "desc": "一個免費的 SlapMac clone — 拍打你的 MacBook，它就會慘叫。自由上傳你自己的音效包。",
+  "lang": "Swift",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/free-SlapMac"
+ },
+ {
+  "name": "Elevator-Car-Simulation-Module_for_IEYI2025",
+  "domain": "軟硬體",
+  "desc": "It is a AI Elevator-Car-Simulation-Module.",
+  "lang": "Python",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/Elevator-Car-Simulation-Module_for_IEYI2025"
+ },
+ {
+  "name": "my.msfs-flightlog24.com",
+  "domain": "航空",
+  "desc": "Personal MSFS flight logbook — an interactive globe of flights recorded with Flight Recorder",
+  "lang": "JavaScript",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/my.msfs-flightlog24.com"
+ },
+ {
+  "name": "aircraft-marshaller",
+  "domain": "航空",
+  "desc": "",
+  "lang": "JavaScript",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/aircraft-marshaller"
+ },
+ {
+  "name": "vtsim-web",
+  "domain": "航空",
+  "desc": "維也納測驗(飛行員潛質測驗)模擬器 — 線上練習版",
+  "lang": "JavaScript",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/vtsim-web"
+ },
+ {
+  "name": "flightdeck",
+  "domain": "航空",
+  "desc": "✈️ Turn your FlightRadar24 logbook into a living GitHub README — pixel-grid contribution map, departures board, flight heatmap.",
+  "lang": "JavaScript",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/flightdeck"
+ },
+ {
+  "name": "VOXATC-voice_air_traffic_communication_trainer",
+  "domain": "航空",
+  "desc": "An interactive platform for pilots to practice ICAO standard radiotelephony with AI air traffic controllers.",
+  "lang": "Python",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/VOXATC-voice_air_traffic_communication_trainer"
+ },
+ {
+  "name": "ATIS-Monster",
+  "domain": "航空",
+  "desc": "AI-powered ATIS translator for Taiwan airports - real-time streaming, transcription, and weather visualization using Google Gemini.",
+  "lang": "Python",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/ATIS-Monster"
+ },
+ {
+  "name": "recycle-ai-tw",
+  "domain": "氣候",
+  "desc": "Trashform v2 — AI 影像辨識台灣資源回收指引（臺北 + 高雄）",
+  "lang": "TypeScript",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/recycle-ai-tw"
+ },
+ {
+  "name": "incense",
+  "domain": "氣候",
+  "desc": "環保電子香 — 無煙無火的數位上香 Web App，供寺廟使用。手機支援鏡頭AR、NFC點香、陀螺儀煙霧、擲筊。",
+  "lang": "JavaScript",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/incense"
+ },
+ {
+  "name": "bve5-shiomi-line",
+  "domain": "日本",
+  "desc": "汐見湾鉄道 汐見線 — a scenic fictional Japanese branch line for BVE Trainsim 5/6 (sea to mountains, 27.4km, 12 stations)",
+  "lang": "",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/bve5-shiomi-line"
+ },
+ {
+  "name": "ookini-kok",
+  "domain": "日本",
+  "desc": "おおきに KOK！— 関西旅遊互動地圖。大阪・京都・神戶・奈良・関西空港 + 25 條主要鐵路。",
+  "lang": "TypeScript",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/ookini-kok"
+ },
+ {
+  "name": "Studookimg-Hub-OSS",
+  "domain": "工具",
+  "desc": "Self-hosted study-room reservation system (Flask + Vercel). Google OAuth, QR check-in, calendar sync, web push.",
+  "lang": "HTML",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/Studookimg-Hub-OSS"
+ },
+ {
+  "name": "Simple-JSON-Quiz-Tool",
+  "domain": "工具",
+  "desc": "This is a lightweight, pure front-end online quiz system. It dynamically generates questions by reading an external JSON file and features automatic scoring with instant feedback. It is ideal for teachers and trainers to quickly create simple online quizzes without the need to set up a complex backend database.",
+  "lang": "HTML",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/Simple-JSON-Quiz-Tool"
+ },
+ {
+  "name": "tschool_web",
+  "domain": "工具",
+  "desc": "Ａ Tschool official admission website.",
+  "lang": "HTML",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/tschool_web"
+ },
+ {
+  "name": "github-status-rotator",
+  "domain": "其他",
+  "desc": "Rotate your GitHub profile status on a schedule via GitHub Actions. Zero infra, free, customizable pool.",
+  "lang": "Python",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/github-status-rotator"
+ },
+ {
+  "name": "nishinari-presentation",
+  "domain": "其他",
+  "desc": "",
+  "lang": "HTML",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/nishinari-presentation"
+ },
+ {
+  "name": "chatgpt_arduino_program_creater",
+  "domain": "其他",
+  "desc": "Use chatgpt api to create a arduino program automatically.",
+  "lang": "Python",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/chatgpt_arduino_program_creater"
+ },
+ {
+  "name": "ChatGPT_mood_selector_drinking_machine",
+  "domain": "其他",
+  "desc": "A drinking machine that can be controlled with mood in combination with ChatGPT.",
+  "lang": "HTML",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/ChatGPT_mood_selector_drinking_machine"
+ },
+ {
+  "name": "web_crawler_idiom_harvester",
+  "domain": "其他",
+  "desc": "It is  a Python tool for web scraping idioms from online dictionaries, stream.",
+  "lang": "Python",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/web_crawler_idiom_harvester"
+ },
+ {
+  "name": "test",
+  "domain": "其他",
+  "desc": "this is a test",
+  "lang": "Python",
+  "stars": 0,
+  "url": "https://github.com/masonzeng702550/test"
+ }
+]

@@ -1,0 +1,27 @@
+<div class="page-head reveal">
+  <span class="ph-k">§ PROJECTS</span>
+  <h1><%= page.title || '開源專案' %></h1>
+  <p class="ph-sub">GitHub 上的公開專案，依領域分組。點擊前往 repo。</p>
+</div>
+<%
+  var groups = {};
+  (site.data.projects || []).forEach(function (p) { (groups[p.domain] = groups[p.domain] || []).push(p); });
+  var order = ['資安', 'CTF', '軟硬體', '航空', '氣候', '日本', '工具', '其他'];
+%>
+<% order.forEach(function (dom) { if (!groups[dom]) return; %>
+  <div class="proj-group reveal">
+    <h2 class="proj-dom"><span class="pd-dot"></span><%= dom %><span class="pd-count"><%= groups[dom].length %></span></h2>
+    <div class="proj-grid">
+    <% groups[dom].forEach(function (p) { %>
+      <a class="proj-card" href="<%= p.url %>" target="_blank" rel="noopener">
+        <div class="pc-top">
+          <span class="pc-name"><%= p.name %></span>
+          <% if (p.stars > 0) { %><span class="pc-star">★ <%= p.stars %></span><% } %>
+        </div>
+        <div class="pc-desc"><%= p.desc || '—' %></div>
+        <% if (p.lang) { %><div class="pc-lang"><%= p.lang %></div><% } %>
+      </a>
+    <% }) %>
+    </div>
+  </div>
+<% }) %>

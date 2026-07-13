@@ -5,8 +5,8 @@
 # Site
 title: Mason.log
 subtitle: 資安 · 航空 · 升學心得
-description: Mason 的技術與心得部落格
-keywords:
+description: Mason（曾緯淳）的技術部落格 — 資安研究、CTF、航空、生成式 AI 與升學心得。
+keywords: 資安,CTF,滲透測試,生成式AI,航空,數位實中,特殊選才,Mason,曾緯淳
 author: 梅森
 language: zh-TW
 timezone: ''
@@ -106,3 +106,18 @@ deploy:
 marked:
   headerIds: true
   anchorAlias: true
+
+# --- plugins ---
+search:
+  path: search.json
+  field: post
+  content: true
+  format: striptags
+sitemap:
+  path: sitemap.xml
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+# 作者簡介（首頁 hero 用）
+bio: 資安研究 · CTF 出題 · 學生飛行員 · 生成式 AI。臺北市數位實驗高中，把學到的東西寫成文章。

@@ -20,4 +20,4 @@ jobs:
       - name: set status
         env:
           STATUS_TOKEN: ${{ secrets.STATUS_TOKEN }}
-        run: python scripts/set_status.py
+        run: python tools/set_status.py

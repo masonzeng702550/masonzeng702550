@@ -1,0 +1,43 @@
+<% var A = site.data.about; %>
+<div class="about-page">
+  <div class="page-head reveal">
+    <span class="ph-k">§ ABOUT</span>
+    <h1>關於 Mason</h1>
+  </div>
+  <p class="about-intro reveal"><%= A.about %></p>
+
+  <h2 class="about-sec reveal">專利 · Patents</h2>
+  <div class="about-cards reveal">
+  <% A.patents.forEach(function (p) { %>
+    <div class="ab-card"><div class="ab-no"><%= p.no %></div><div class="ab-ptext"><%= p.text %></div></div>
+  <% }) %>
+  </div>
+
+  <% var secs = [['awards','競賽與獲獎'],['courses','課程與證照'],['work','工作與實習'],['talks','演講'],['community','社群'],['leadership','幹部經歷']]; %>
+  <% secs.forEach(function (s) { var key = s[0], label = s[1]; if (!A[key]) return; %>
+    <h2 class="about-sec reveal"><%= label %></h2>
+    <div class="about-timeline reveal">
+    <% A[key].forEach(function (yb) { %>
+      <div class="ab-year-row">
+        <div class="ab-year"><%= yb.year %></div>
+        <div class="ab-items">
+        <% yb.items.forEach(function (it) { %>
+          <div class="ab-item">
+            <span class="ab-title"><%= it.title %></span>
+            <% if (it.tag) { %><span class="ab-tag"><%= it.tag %></span><% } %>
+            <% if (it.detail) { %><div class="ab-detail"><%= it.detail %></div><% } %>
+          </div>
+        <% }) %>
+        </div>
+      </div>
+    <% }) %>
+    </div>
+  <% }) %>
+
+  <h2 class="about-sec reveal">聯絡</h2>
+  <p class="about-contact reveal">
+    <a href="mailto:<%= A.contact %>"><%= A.contact %></a> ·
+    <a href="https://github.com/masonzeng702550" target="_blank" rel="noopener">GitHub</a> ·
+    <a href="https://masonlifemaker.medium.com" target="_blank" rel="noopener">Medium</a>
+  </p>
+</div>
