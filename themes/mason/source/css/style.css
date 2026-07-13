@@ -77,13 +77,18 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;back
 .post-content code{font-family:var(--font-mono);font-size:.9em}
 .post-content :not(pre)>code{background:var(--card);border:1px solid var(--border);border-radius:5px;padding:1px 6px;color:var(--cyan);word-break:break-word;overflow-wrap:anywhere}
 .post-content a{word-break:break-word}
-/* Hexo highlight wrapper (figure > table > pre) — scroll inside, never widen page */
-.post-content figure.highlight{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;margin:20px 0;background:var(--bg-soft);border:1px solid var(--border);border-left:2px solid var(--cyan);border-radius:8px}
-.post-content figure.highlight table{display:table;width:auto;max-width:none;margin:0;border:none;border-collapse:collapse;overflow:visible}
-.post-content figure.highlight tr,.post-content figure.highlight td{border:none;padding:0;background:none}
+/* code block: clean flat frame, inner scroll, copy button fixed in corner */
+.post-content figure.highlight{position:relative;max-width:100%;margin:22px 0;background:#080b14;border:1px solid var(--border-bright);border-radius:12px;overflow:hidden}
+.post-content figure.highlight table,.post-content figure.highlight tbody,.post-content figure.highlight tr,.post-content figure.highlight td{display:block;width:auto;max-width:none;margin:0;border:none;padding:0;background:none;border-collapse:collapse}
+.post-content figure.highlight td.code{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .post-content figure.highlight .gutter{display:none}
-.post-content figure.highlight pre{background:none;border:none;border-radius:0;margin:0;padding:16px 18px;overflow:visible;max-width:none;line-height:1.65}
+.post-content figure.highlight pre{background:none;border:none;border-radius:0;margin:0;padding:18px 20px 20px;overflow:visible;max-width:none;min-width:max-content;line-height:1.7}
 .post-content figure.highlight .line{white-space:pre}
+.copy-btn{position:absolute;right:10px;bottom:10px;z-index:3;font-family:var(--font-mono);font-size:11.5px;line-height:1;padding:6px 12px;border-radius:8px;background:rgba(11,15,26,.92);border:1px solid var(--border-bright);color:var(--muted);cursor:pointer;opacity:0;transition:var(--transition);backdrop-filter:blur(4px)}
+.post-content figure.highlight:hover .copy-btn,.copy-btn:focus{opacity:1}
+.copy-btn:hover{color:var(--cyan);border-color:var(--cyan)}
+.copy-btn.done{color:var(--green);border-color:var(--green);opacity:1}
+@media(hover:none){.copy-btn{opacity:.85}}
 /* syntax colors (Hexo highlighter classes) — neon palette */
 .post-content figure.highlight .comment,.post-content figure.highlight .quote{color:var(--muted);font-style:italic}
 .post-content figure.highlight .string,.post-content figure.highlight .regexp,.post-content figure.highlight .addition{color:var(--green)}

@@ -78,4 +78,32 @@
       a.addEventListener('click', function () { navToggle.checked = false; });
     });
   }
+
+  // one-click copy button on each code block (bottom-right)
+  document.querySelectorAll('.post-content figure.highlight').forEach(function (fig) {
+    if (fig.querySelector('.copy-btn')) return;
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'copy-btn'; btn.textContent = '複製';
+    btn.setAttribute('aria-label', '複製程式碼');
+    fig.appendChild(btn);
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var pre = fig.querySelector('td.code pre') || fig.querySelector('pre');
+      var text = pre ? pre.innerText : '';
+      var done = function () {
+        btn.textContent = '已複製'; btn.classList.add('done');
+        setTimeout(function () { btn.textContent = '複製'; btn.classList.remove('done'); }, 1500);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(function () { fallback(text, done); });
+      } else { fallback(text, done); }
+    });
+  });
+  function fallback(text, done) {
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); done(); } catch (e) {}
+    document.body.removeChild(ta);
+  }
 })();
