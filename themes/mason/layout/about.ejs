@@ -4,7 +4,19 @@
     <span class="ph-k">§ ABOUT</span>
     <h1>關於 Mason</h1>
   </div>
-  <p class="about-intro reveal"><%= A.about %></p>
+  <p class="about-intro reveal"><%= A.intro %></p>
+  <% if (A.education) { %>
+  <p class="about-edu reveal"><% A.education.forEach(function (e, i) { %><%= (i ? ' · ' : '') + e %><% }) %></p>
+  <% } %>
+
+  <% if (A.skills) { %>
+  <h2 class="about-sec reveal">專長</h2>
+  <div class="about-skills reveal">
+  <% A.skills.forEach(function (s) { %>
+    <div class="sk-row"><span class="sk-label"><%= s.group %></span><span class="sk-tags"><% s.items.forEach(function (it) { %><span class="sk-tag"><%= it %></span><% }) %></span></div>
+  <% }) %>
+  </div>
+  <% } %>
 
   <h2 class="about-sec reveal">專利 · Patents</h2>
   <div class="about-cards reveal">
@@ -13,26 +25,25 @@
   <% }) %>
   </div>
 
-  <% var secs = [['awards','競賽與獲獎'],['courses','課程與證照'],['work','工作與實習'],['talks','演講'],['community','社群'],['leadership','幹部經歷']]; %>
+  <%
+    var secs = [
+      ['awards', '競賽紀錄'], ['certs', '測驗與證照'], ['courses', '課程與研習'],
+      ['work', '工作與實習'], ['talks', '演講'], ['community', '社群與社團'], ['leadership', '幹部經歷']
+    ];
+  %>
   <% secs.forEach(function (s) { var key = s[0], label = s[1]; if (!A[key]) return; %>
-    <h2 class="about-sec reveal"><%= label %></h2>
-    <div class="about-timeline reveal">
-    <% A[key].forEach(function (yb) { %>
-      <div class="ab-year-row">
-        <div class="ab-year"><%= yb.year %></div>
-        <div class="ab-items">
-        <% yb.items.forEach(function (it) { %>
-          <div class="ab-item">
-            <span class="ab-title"><%= it.title %></span>
-            <% if (it.tag) { %><span class="ab-tag"><%= it.tag %></span><% } %>
-            <% if (it.detail) { %><div class="ab-detail"><%= it.detail %></div><% } %>
-          </div>
-        <% }) %>
-        </div>
-      </div>
+    <h2 class="about-sec reveal"><%= label %><span class="sec-count"><%= A[key].length %></span></h2>
+    <ul class="ab-list reveal">
+    <% A[key].forEach(function (it) { %>
+      <li class="ab-li"><span class="ab-t"><%= it.t %></span><% if (it.tag) { %><span class="ab-tag"><%= it.tag %></span><% } %></li>
     <% }) %>
-    </div>
+    </ul>
   <% }) %>
+
+  <% if (A.interests) { %>
+  <h2 class="about-sec reveal">興趣</h2>
+  <div class="about-interests reveal"><% A.interests.forEach(function (x) { %><span class="int-tag"><%= x %></span><% }) %></div>
+  <% } %>
 
   <h2 class="about-sec reveal">聯絡</h2>
   <p class="about-contact reveal">
