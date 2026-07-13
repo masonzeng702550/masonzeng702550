@@ -72,9 +72,21 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;back
 .post-content blockquote{border-left:2px solid var(--violet);padding:4px 18px;margin:20px 0;color:var(--text-soft);font-style:italic}
 .post-content img{border:1px solid var(--border);border-radius:10px;display:block;margin:26px auto}
 .post-content strong{color:var(--text)}
-.post-content pre{background:var(--bg-soft);border:1px solid var(--border);border-left:2px solid var(--cyan);border-radius:8px;padding:16px 18px;overflow-x:auto;margin:20px 0;font-family:var(--font-mono);font-size:13px}
+.post-content{overflow-wrap:break-word}
+.post-content pre{background:var(--bg-soft);border:1px solid var(--border);border-left:2px solid var(--cyan);border-radius:8px;padding:16px 18px;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;font-family:var(--font-mono);font-size:13px;max-width:100%}
 .post-content code{font-family:var(--font-mono);font-size:.9em}
-.post-content :not(pre)>code{background:var(--card);border:1px solid var(--border);border-radius:5px;padding:1px 6px;color:var(--cyan)}
+.post-content :not(pre)>code{background:var(--card);border:1px solid var(--border);border-radius:5px;padding:1px 6px;color:var(--cyan);word-break:break-word;overflow-wrap:anywhere}
+.post-content a{word-break:break-word}
+/* Hexo highlight wrapper (figure > table > pre) — scroll inside, never widen page */
+.post-content figure.highlight{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;margin:20px 0;background:var(--bg-soft);border:1px solid var(--border);border-left:2px solid var(--cyan);border-radius:8px}
+.post-content figure.highlight table{display:table;width:auto;max-width:none;margin:0;border:none;border-collapse:collapse;overflow:visible}
+.post-content figure.highlight tr,.post-content figure.highlight td{border:none;padding:0;background:none}
+.post-content figure.highlight .gutter{display:none}
+.post-content figure.highlight pre{background:none;border:none;border-radius:0;margin:0;padding:14px 16px;overflow:visible;max-width:none}
+/* markdown tables scroll on narrow screens (GitHub-style) */
+.post-content table{display:block;width:max-content;max-width:100%;overflow:auto;-webkit-overflow-scrolling:touch;border-collapse:collapse;margin:18px 0;font-size:13.5px}
+.post-content thead th{background:var(--card);color:var(--text)}
+.post-content th,.post-content td{border:1px solid var(--border);padding:7px 12px;text-align:left;white-space:nowrap}
 
 /* claps + comments */
 .claps{display:flex;align-items:center;gap:14px;margin:40px 0 0}
