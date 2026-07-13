@@ -54,6 +54,34 @@
   </div>
 </section>
 
+<section class="home-block reveal">
+  <div class="hb-head"><span class="hb-k">§ GITHUB</span><h2>開發足跡</h2><a class="hb-more" href="https://github.com/masonzeng702550" target="_blank" rel="noopener">@masonzeng702550</a></div>
+  <div class="gh-graph">
+    <img loading="lazy" alt="GitHub 貢獻活動圖" src="https://github-readme-activity-graph.vercel.app/graph?username=masonzeng702550&bg_color=0f1422&color=22d3ee&line=a78bfa&point=ffffff&area=true&area_color=22d3ee&hide_border=true&custom_title=Contribution+Activity&height=300">
+  </div>
+  <div class="gh-stats">
+    <img loading="lazy" alt="GitHub 統計" src="https://github-readme-stats-roan-five.vercel.app/api?username=masonzeng702550&show_icons=true&hide_border=true&theme=transparent&title_color=22d3ee&icon_color=22d3ee&text_color=cbd5e1&include_all_commits=true&count_private=true">
+    <img loading="lazy" alt="常用語言" src="https://github-readme-stats-roan-five.vercel.app/api/top-langs/?username=masonzeng702550&layout=compact&hide_border=true&theme=transparent&title_color=22d3ee&text_color=cbd5e1&langs_count=8">
+  </div>
+</section>
+
+<section class="home-block reveal">
+  <div class="hb-head"><span class="hb-k">§ PROJECTS</span><h2>酷專案</h2><a class="hb-more" href="<%- url_for('/projects/') %>">全部</a></div>
+  <%
+    var featNames = ['verus-bridge-forensics','VOXATC-voice_air_traffic_communication_trainer','incense','recycle-ai-tw','my.msfs-flightlog24.com','secure-vault-solidity'];
+    var byName = {}; (site.data.projects || []).forEach(function (p) { byName[p.name] = p; });
+  %>
+  <div class="proj-grid">
+  <% featNames.forEach(function (nm) { var p = byName[nm]; if (!p) return; %>
+    <a class="proj-card reveal" href="<%= p.url %>" target="_blank" rel="noopener">
+      <div class="pc-top"><span class="pc-name"><%= p.name %></span><% if (p.stars > 0) { %><span class="pc-star">★ <%= p.stars %></span><% } %></div>
+      <div class="pc-desc"><%= p.desc %></div>
+      <% if (p.lang) { %><div class="pc-foot"><span class="pc-lang"><%= p.lang %></span></div><% } %>
+    </a>
+  <% }) %>
+  </div>
+</section>
+
 <!-- whole-page auto translation via Google Website Translator, driven by the 中/EN/日 buttons -->
 <div id="google_translate_element" aria-hidden="true"></div>
 <script>
