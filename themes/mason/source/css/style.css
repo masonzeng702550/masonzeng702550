@@ -82,7 +82,17 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;back
 .post-content figure.highlight table{display:table;width:auto;max-width:none;margin:0;border:none;border-collapse:collapse;overflow:visible}
 .post-content figure.highlight tr,.post-content figure.highlight td{border:none;padding:0;background:none}
 .post-content figure.highlight .gutter{display:none}
-.post-content figure.highlight pre{background:none;border:none;border-radius:0;margin:0;padding:14px 16px;overflow:visible;max-width:none}
+.post-content figure.highlight pre{background:none;border:none;border-radius:0;margin:0;padding:16px 18px;overflow:visible;max-width:none;line-height:1.65}
+.post-content figure.highlight .line{white-space:pre}
+/* syntax colors (Hexo highlighter classes) — neon palette */
+.post-content figure.highlight .comment,.post-content figure.highlight .quote{color:var(--muted);font-style:italic}
+.post-content figure.highlight .string,.post-content figure.highlight .regexp,.post-content figure.highlight .addition{color:var(--green)}
+.post-content figure.highlight .keyword,.post-content figure.highlight .selector-tag,.post-content figure.highlight .built_in,.post-content figure.highlight .name,.post-content figure.highlight .literal{color:var(--violet)}
+.post-content figure.highlight .number,.post-content figure.highlight .meta,.post-content figure.highlight .symbol,.post-content figure.highlight .bullet{color:var(--gold)}
+.post-content figure.highlight .function .title,.post-content figure.highlight .title,.post-content figure.highlight .class .title,.post-content figure.highlight .attr,.post-content figure.highlight .attribute,.post-content figure.highlight .variable{color:var(--cyan)}
+.post-content figure.highlight .params{color:var(--text-soft)}
+.post-content figure.highlight .type,.post-content figure.highlight .tag{color:var(--cyan)}
+.post-content figure.highlight .deletion{color:var(--red)}
 /* markdown tables scroll on narrow screens (GitHub-style) */
 .post-content table{display:block;width:max-content;max-width:100%;overflow:auto;-webkit-overflow-scrolling:touch;border-collapse:collapse;margin:18px 0;font-size:13.5px}
 .post-content thead th{background:var(--card);color:var(--text)}
