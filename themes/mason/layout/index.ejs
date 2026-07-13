@@ -1,17 +1,24 @@
 <section class="home-hero reveal">
-  <div class="hh-tag">~/ whoami</div>
+  <div class="hero-top">
+    <div class="hh-tag">~/ whoami</div>
+    <div class="lang-switch" role="group" aria-label="language">
+      <button data-lang="zh" class="active">中</button>
+      <button data-lang="en">EN</button>
+      <button data-lang="ja">日</button>
+    </div>
+  </div>
   <h1 class="hh-title"><%= config.title %></h1>
-  <p class="hh-sub"><%= config.subtitle %></p>
-  <p class="hh-bio"><%= config.bio %></p>
+  <p class="hh-sub" data-i18n="sub"><%= config.subtitle %></p>
+  <p class="hh-bio" data-i18n="bio"><%= config.bio %></p>
   <div class="hh-cta">
-    <a class="btn primary" href="<%- url_for('/posts/') %>">讀文章</a>
-    <a class="btn" href="<%- url_for('/projects/') %>">看專案</a>
-    <a class="btn" href="<%- url_for('/about/') %>">關於我</a>
+    <a class="btn primary" data-i18n="cta_read" href="<%- url_for('/posts/') %>">讀文章</a>
+    <a class="btn" data-i18n="cta_proj" href="<%- url_for('/projects/') %>">看專案</a>
+    <a class="btn" data-i18n="cta_about" href="<%- url_for('/about/') %>">關於我</a>
   </div>
 </section>
 
 <section class="home-block reveal">
-  <div class="hb-head"><span class="hb-k">§ FEATURED</span><h2>精選文章</h2><a class="hb-more" href="<%- url_for('/posts/') %>">全部</a></div>
+  <div class="hb-head"><span class="hb-k">§ FEATURED</span><h2 data-i18n="feat">精選文章</h2><a class="hb-more" data-i18n="more" href="<%- url_for('/posts/') %>">全部</a></div>
   <div class="post-list">
   <% site.posts.sort('date', -1).limit(4).each(function (post) { %>
     <a class="pcard reveal" href="<%- url_for(post.path) %>">
@@ -28,7 +35,7 @@
 </section>
 
 <section class="home-block reveal">
-  <div class="hb-head"><span class="hb-k">§ TOPICS</span><h2>分類</h2><span class="hb-note">泡泡越大 = 文章越多</span></div>
+  <div class="hb-head"><span class="hb-k">§ TOPICS</span><h2 data-i18n="topics">分類</h2><span class="hb-note" data-i18n="bubblenote">泡泡越大 = 文章越多</span></div>
   <div class="bubbles">
   <%
     var maxc = 1;
@@ -51,3 +58,43 @@
   <% }) %>
   </div>
 </section>
+
+<script>
+(function () {
+  var I18N = {
+    zh: {
+      sub: '資安 · 航空 · 升學心得',
+      bio: '資安研究 · CTF 出題 · 學生飛行員 · 生成式 AI。臺北市數位實驗高中，把學到的東西寫成文章。',
+      cta_read: '讀文章', cta_proj: '看專案', cta_about: '關於我',
+      feat: '精選文章', more: '全部', topics: '分類', bubblenote: '泡泡越大 = 文章越多'
+    },
+    en: {
+      sub: 'Security · Aviation · Study Notes',
+      bio: 'Security research, CTF authoring, student pilot, generative AI. A student at Taipei Municipal Digital Experimental High School — writing about what I learn.',
+      cta_read: 'Read Posts', cta_proj: 'Projects', cta_about: 'About',
+      feat: 'Featured', more: 'All', topics: 'Topics', bubblenote: 'bigger = more posts'
+    },
+    ja: {
+      sub: 'セキュリティ・航空・受験記録',
+      bio: 'セキュリティ研究・CTF作問・学生パイロット・生成AI。台北市デジタル実験高校の学生で、学んだことを記事にしています。',
+      cta_read: '記事を読む', cta_proj: 'プロジェクト', cta_about: '私について',
+      feat: '注目の記事', more: 'すべて', topics: 'トピック', bubblenote: '大きいほど記事が多い'
+    }
+  };
+  var btns = document.querySelectorAll('.lang-switch button');
+  function apply(lang) {
+    var dict = I18N[lang] || I18N.zh;
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      if (dict[k]) el.textContent = dict[k];
+    });
+    btns.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang') === lang); });
+    try { localStorage.setItem('home-lang', lang); } catch (e) {}
+    document.documentElement.setAttribute('data-home-lang', lang);
+  }
+  btns.forEach(function (b) { b.addEventListener('click', function () { apply(b.getAttribute('data-lang')); }); });
+  var saved = 'zh';
+  try { saved = localStorage.getItem('home-lang') || 'zh'; } catch (e) {}
+  if (saved !== 'zh') apply(saved);
+})();
+</script>

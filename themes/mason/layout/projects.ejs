@@ -1,7 +1,7 @@
 <div class="page-head reveal">
   <span class="ph-k">§ PROJECTS</span>
   <h1><%= page.title || '開源專案' %></h1>
-  <p class="ph-sub">GitHub 上的公開專案，依領域分組。點擊前往 repo。</p>
+  <p class="ph-sub">GitHub 上的公開專案，依領域分組。可直接在此加星或 fork。</p>
 </div>
 <%
   var groups = {};
@@ -13,15 +13,22 @@
     <h2 class="proj-dom"><span class="pd-dot"></span><%= dom %><span class="pd-count"><%= groups[dom].length %></span></h2>
     <div class="proj-grid">
     <% groups[dom].forEach(function (p) { %>
-      <a class="proj-card" href="<%= p.url %>" target="_blank" rel="noopener">
+      <div class="proj-card">
         <div class="pc-top">
-          <span class="pc-name"><%= p.name %></span>
+          <a class="pc-name" href="<%= p.url %>" target="_blank" rel="noopener"><%= p.name %></a>
           <% if (p.stars > 0) { %><span class="pc-star">★ <%= p.stars %></span><% } %>
         </div>
         <div class="pc-desc"><%= p.desc || '—' %></div>
-        <% if (p.lang) { %><div class="pc-lang"><%= p.lang %></div><% } %>
-      </a>
+        <div class="pc-foot">
+          <% if (p.lang) { %><span class="pc-lang"><%= p.lang %></span><% } %>
+          <span class="gh-btns">
+            <a class="github-button" href="<%= p.url %>" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star <%= p.name %> on GitHub">Star</a>
+            <a class="github-button" href="<%= p.url %>/fork" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-icon="octicon-repo-forked" data-size="small" data-show-count="true" aria-label="Fork <%= p.name %> on GitHub">Fork</a>
+          </span>
+        </div>
+      </div>
     <% }) %>
     </div>
   </div>
 <% }) %>
+<script async defer src="https://buttons.github.io/buttons.js"></script>

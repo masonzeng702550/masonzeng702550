@@ -2,7 +2,7 @@
  {
   "name": "verus-bridge-forensics",
   "domain": "資安",
-  "desc": "On-chain + source-code dual-track forensics of the 2026-05-18 Verus and Ethereum cross-chain bridge attack. Final report (DOCX/PDF/MD) with A/B/C evidence grading.",
+  "desc": "對 Verus 跨鏈橋 2026 年遭盜約 1158 萬美元事件的原始碼與鏈上雙軌鑑識，定位出合約未驗證來源與目的金額相等的漏洞。",
   "lang": "",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/verus-bridge-forensics"
@@ -10,7 +10,7 @@
  {
   "name": "secure-vault-solidity",
   "domain": "資安",
-  "desc": "Secure Solidity ETH vault with multi-layered defense against common smart contract attacks. Built and tested with Foundry — 14/14 tests passing including real reentrancy attacker.",
+  "desc": "以 Foundry 開發並測試的 Solidity 以太幣金庫合約，內建防重入、權限分級、緊急暫停與提領上限等多層安全防護。",
   "lang": "Solidity",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/secure-vault-solidity"
@@ -18,7 +18,7 @@
  {
   "name": "AIS3-ESP32-ICS-Simulator-Hardware-Control",
   "domain": "資安",
-  "desc": "",
+  "desc": "用 Python 經串口控制 ESP32 的 LED、伺服馬達、蜂鳴器、按鈕與溫濕度感測器的工控硬體通訊系統。",
   "lang": "Python",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/AIS3-ESP32-ICS-Simulator-Hardware-Control"
@@ -26,7 +26,7 @@
  {
   "name": "I-m-_Python-_NOT_snake",
   "domain": "CTF",
-  "desc": "FHFCTF",
+  "desc": "用 HTML Canvas 與純 JavaScript 寫的貪食蛇網頁小遊戲，吃到食物時蛇身會換成該食物顏色，源自 CTF 題目。",
   "lang": "JavaScript",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/I-m-_Python-_NOT_snake"
@@ -34,7 +34,7 @@
  {
   "name": "taiwan-bus-display",
   "domain": "軟硬體",
-  "desc": "台灣巴士車內資訊顯示系統 — Taiwan bus in-vehicle LCD display & tri-lingual (中/英/日) announcement system",
+  "desc": "純前端的台灣公車車內資訊顯示與到站廣播系統，可輪播下一站、站序與轉乘畫面，並產生中英日三語語音報站。",
   "lang": "TypeScript",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/taiwan-bus-display"
@@ -42,7 +42,7 @@
  {
   "name": "keep-awake",
   "domain": "軟硬體",
-  "desc": "",
+  "desc": "讓筆電闔蓋或閒置時暫時不睡眠、確保長時間 agent 任務不中斷的 Claude Code skill，支援 macOS 與 Windows。",
   "lang": "PowerShell",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/keep-awake"
@@ -50,7 +50,7 @@
  {
   "name": "free-SlapMac",
   "domain": "軟硬體",
-  "desc": "一個免費的 SlapMac clone — 拍打你的 MacBook，它就會慘叫。自由上傳你自己的音效包。",
+  "desc": "免費的 SlapMac 複製品，用麥克風偵測拍打 MacBook 外殼的聲響並隨機播放慘叫音效，常駐 macOS 選單列且可自訂音效包。",
   "lang": "Swift",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/free-SlapMac"
@@ -58,7 +58,7 @@
  {
   "name": "Elevator-Car-Simulation-Module_for_IEYI2025",
   "domain": "軟硬體",
-  "desc": "It is a AI Elevator-Car-Simulation-Module.",
+  "desc": "為 IEYI 2025 發明展製作的電梯車廂模擬模組，結合 Python 與 Arduino，具備樓層語音播報與 TFT 顯示互動。",
   "lang": "Python",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/Elevator-Car-Simulation-Module_for_IEYI2025"
@@ -66,7 +66,7 @@
  {
   "name": "my.msfs-flightlog24.com",
   "domain": "航空",
-  "desc": "Personal MSFS flight logbook — an interactive globe of flights recorded with Flight Recorder",
+  "desc": "把微軟模擬飛行的錄製航跡轉成可互動 3D 地球飛行日誌的 PWA 網站，含統計列與可收合分析面板。",
   "lang": "JavaScript",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/my.msfs-flightlog24.com"
@@ -74,7 +74,7 @@
  {
   "name": "aircraft-marshaller",
   "domain": "航空",
-  "desc": "",
+  "desc": "用電腦鏡頭即時辨識 ICAO 機坪手勢的網頁遊戲，玩家扮演地面導引員指揮 3D 飛機沿導入線滑入並停在停止點。",
   "lang": "JavaScript",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/aircraft-marshaller"
@@ -82,7 +82,7 @@
  {
   "name": "vtsim-web",
   "domain": "航空",
-  "desc": "維也納測驗(飛行員潛質測驗)模擬器 — 線上練習版",
+  "desc": "重現台灣飛行員潛質測驗（維也納測驗）的網頁版練習模擬器，題目即時隨機生成，收錄反應力、記憶與人格等科目。",
   "lang": "JavaScript",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/vtsim-web"
@@ -90,7 +90,7 @@
  {
   "name": "flightdeck",
   "domain": "航空",
-  "desc": "✈️ Turn your FlightRadar24 logbook into a living GitHub README — pixel-grid contribution map, departures board, flight heatmap.",
+  "desc": "交叉比對 FlightRadar24 飛行紀錄與 GitHub 貢獻歷史，產生可嵌入首頁的動畫遊牧地圖與航班看板 SVG。",
   "lang": "JavaScript",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/flightdeck"
@@ -98,7 +98,7 @@
  {
   "name": "VOXATC-voice_air_traffic_communication_trainer",
   "domain": "航空",
-  "desc": "An interactive platform for pilots to practice ICAO standard radiotelephony with AI air traffic controllers.",
+  "desc": "以 Gemini 語音辨識與合成打造的航管通話練習平台，用按鍵通話和 AI 塔台進行 ICAO 標準的起飛與到場無線電對話。",
   "lang": "Python",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/VOXATC-voice_air_traffic_communication_trainer"
@@ -106,7 +106,7 @@
  {
   "name": "ATIS-Monster",
   "domain": "航空",
-  "desc": "AI-powered ATIS translator for Taiwan airports - real-time streaming, transcription, and weather visualization using Google Gemini.",
+  "desc": "以 Flask 打造的機場資訊系統，自動錄製松山、桃園、高雄機場 ATIS 廣播，透過 Gemini 轉錄翻譯成中文並生成天氣簡圖。",
   "lang": "Python",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/ATIS-Monster"
@@ -114,7 +114,7 @@
  {
   "name": "recycle-ai-tw",
   "domain": "氣候",
-  "desc": "Trashform v2 — AI 影像辨識台灣資源回收指引（臺北 + 高雄）",
+  "desc": "以 AI 影像辨識彌補民眾廢棄物分類認知落差的在地化回收指引網站，支援複合材質拆解，公民行動學期專題。",
   "lang": "TypeScript",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/recycle-ai-tw"
@@ -122,7 +122,7 @@
  {
   "name": "incense",
   "domain": "氣候",
-  "desc": "環保電子香 — 無煙無火的數位上香 Web App，供寺廟使用。手機支援鏡頭AR、NFC點香、陀螺儀煙霧、擲筊。",
+  "desc": "無煙無火的數位上香網頁 App，手機支援鏡頭 AR、NFC 點香、陀螺儀煙霧與擲筊，可 PWA 離線供寺廟信眾使用。",
   "lang": "JavaScript",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/incense"
@@ -130,7 +130,7 @@
  {
   "name": "bve5-shiomi-line",
   "domain": "日本",
-  "desc": "汐見湾鉄道 汐見線 — a scenic fictional Japanese branch line for BVE Trainsim 5/6 (sea to mountains, 27.4km, 12 stations)",
+  "desc": "為 BVE Trainsim 5/6 製作的虛構路線「汐見線」，全長 27.4 公里 12 站，沿途重現海岸、峽谷到溫泉鄉共十種場景。",
   "lang": "",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/bve5-shiomi-line"
@@ -138,7 +138,7 @@
  {
   "name": "ookini-kok",
   "domain": "日本",
-  "desc": "おおきに KOK！— 関西旅遊互動地圖。大阪・京都・神戶・奈良・関西空港 + 25 條主要鐵路。",
+  "desc": "大阪手繪風格的關西旅遊互動地圖，涵蓋京阪神奈良機場的鐵路轉乘與景點，並用 Web Audio 合成機場鐵路鐘聲。",
   "lang": "TypeScript",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/ookini-kok"
@@ -146,7 +146,7 @@
  {
   "name": "Studookimg-Hub-OSS",
   "domain": "工具",
-  "desc": "Self-hosted study-room reservation system (Flask + Vercel). Google OAuth, QR check-in, calendar sync, web push.",
+  "desc": "以 Flask 開發、可部署到 Vercel 的自架自習室預約系統，支援 Google 登入、QR 報到、角色權限與審計紀錄。",
   "lang": "HTML",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/Studookimg-Hub-OSS"
@@ -154,7 +154,7 @@
  {
   "name": "Simple-JSON-Quiz-Tool",
   "domain": "工具",
-  "desc": "This is a lightweight, pure front-end online quiz system. It dynamically generates questions by reading an external JSON file and features automatic scoring with instant feedback. It is ideal for teachers and trainers to quickly create simple online quizzes without the need to set up a complex backend database.",
+  "desc": "輕量的純前端線上測驗工具，讀取外部 JSON 題庫動態生成題目，具自動計分與即時回饋，方便教師快速建立小考。",
   "lang": "HTML",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/Simple-JSON-Quiz-Tool"
@@ -162,7 +162,7 @@
  {
   "name": "tschool_web",
   "domain": "工具",
-  "desc": "Ａ Tschool official admission website.",
+  "desc": "臺北市數位實驗高中對外招生用的官方入學介紹網站。",
   "lang": "HTML",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/tschool_web"
@@ -170,7 +170,7 @@
  {
   "name": "github-status-rotator",
   "domain": "其他",
-  "desc": "Rotate your GitHub profile status on a schedule via GitHub Actions. Zero infra, free, customizable pool.",
+  "desc": "純靠 GitHub Actions 排程、免伺服器地從自訂清單隨機輪換你的 GitHub 個人狀態，每則狀態 65 分鐘後自動過期。",
   "lang": "Python",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/github-status-rotator"
@@ -178,7 +178,7 @@
  {
   "name": "nishinari-presentation",
   "domain": "其他",
-  "desc": "",
+  "desc": "介紹大阪西成區的網頁簡報，以日式排版與圖文呈現當地廉價旅館、日雇勞工與飛田等社會樣貌。",
   "lang": "HTML",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/nishinari-presentation"
@@ -186,7 +186,7 @@
  {
   "name": "chatgpt_arduino_program_creater",
   "domain": "其他",
-  "desc": "Use chatgpt api to create a arduino program automatically.",
+  "desc": "透過 ChatGPT 協助使用者自動生成 Arduino 程式碼的輔助工具。",
   "lang": "Python",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/chatgpt_arduino_program_creater"
@@ -194,7 +194,7 @@
  {
   "name": "ChatGPT_mood_selector_drinking_machine",
   "domain": "其他",
-  "desc": "A drinking machine that can be controlled with mood in combination with ChatGPT.",
+  "desc": "結合 Whisper 語音辨識與 ChatGPT 判讀使用者心情，推薦並透過 Arduino 繼電器控制出飲機供應對應飲料的裝置。",
   "lang": "HTML",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/ChatGPT_mood_selector_drinking_machine"
@@ -202,17 +202,9 @@
  {
   "name": "web_crawler_idiom_harvester",
   "domain": "其他",
-  "desc": "It is  a Python tool for web scraping idioms from online dictionaries, stream.",
+  "desc": "以 requests 與 BeautifulSoup 撰寫的 Python 爬蟲，從教育部成語典網站抓取指定字詞的成語資料。",
   "lang": "Python",
   "stars": 0,
   "url": "https://github.com/masonzeng702550/web_crawler_idiom_harvester"
- },
- {
-  "name": "test",
-  "domain": "其他",
-  "desc": "this is a test",
-  "lang": "Python",
-  "stars": 0,
-  "url": "https://github.com/masonzeng702550/test"
  }
 ]
