@@ -361,3 +361,8 @@ font[style]{background:transparent!important;box-shadow:none!important}
 .game-canvas{display:block;width:600px;max-width:88vw;height:auto;background:#0a0e1a;touch-action:none}
 .game-hint{padding:.55rem 1rem;font-size:.74rem;color:var(--muted);text-align:center;font-family:ui-monospace,monospace;border-top:1px solid var(--border)}
 @media(max-width:640px){.tw-body{max-height:200px}}
+
+/* ---------- about: 除此之外 ---------- */
+.about-misc{list-style:none;margin:.4rem 0 0;padding:0;display:grid;gap:.55rem}
+.misc-li{display:flex;gap:.6rem;align-items:baseline;color:#c4cfdd;font-size:.95rem;line-height:1.6}
+.misc-mk{color:var(--green);font-family:ui-monospace,monospace;flex:none;font-weight:700}
