@@ -19,17 +19,9 @@
 
 <section class="home-block reveal">
   <div class="hb-head"><span class="hb-k">§ FEATURED</span><h2 data-i18n="feat">精選文章</h2><a class="hb-more" data-i18n="more" href="<%- url_for('/posts/') %>">全部</a></div>
-  <div class="post-list">
-  <% site.posts.sort('date', -1).limit(4).each(function (post) { %>
-    <a class="pcard reveal" href="<%- url_for(post.path) %>">
-      <div class="pdate"><%= date(post.date, 'YYYY-MM-DD') %></div>
-      <div class="ptitle"><%= post.title %></div>
-      <% if (post.excerpt) { %><div class="pexcerpt"><%= post.excerpt %></div><% } %>
-      <div class="pmeta">
-        <% post.categories.each(function (c) { %><span><%= c.name %></span><% }) %>
-        <% post.tags.each(function (t) { %><span>#<%= t.name %></span><% }) %>
-      </div>
-    </a>
+  <div class="acard-grid">
+  <% site.posts.sort('date', -1).limit(6).each(function (post) { %>
+    <%- partial('_partial/acard', { post: post }) %>
   <% }) %>
   </div>
 </section>

@@ -3,31 +3,27 @@
   <h1><%= page.title || '所有文章' %></h1>
 </div>
 <div class="posts-toggle reveal">
-  <button data-v="time" class="active">時間軸</button>
+  <button data-v="time" class="active">最新</button>
   <button data-v="cat">主題分類</button>
 </div>
 
 <div class="posts-view" id="view-time">
-  <% var lastYear = ''; site.posts.sort('date', -1).each(function (post) { var y = date(post.date, 'YYYY'); %>
-    <% if (y !== lastYear) { lastYear = y; %><div class="tl-year"><%= y %></div><% } %>
-    <a class="tl-item reveal" href="<%- url_for(post.path) %>">
-      <span class="tl-date"><%= date(post.date, 'MM-DD') %></span>
-      <span class="tl-title"><%= post.title %></span>
-      <span class="tl-cat"><% post.categories.each(function (c) { %><%= c.name %><% }) %></span>
-    </a>
+  <div class="acard-grid">
+  <% site.posts.sort('date', -1).each(function (post) { %>
+    <%- partial('_partial/acard', { post: post }) %>
   <% }) %>
+  </div>
 </div>
 
 <div class="posts-view" id="view-cat" hidden>
   <% site.categories.sort('length', -1).each(function (cat) { %>
     <div class="cat-group reveal">
       <h3 class="cat-title"><%= cat.name %><span><%= cat.length %></span></h3>
+      <div class="acard-grid">
       <% cat.posts.sort('date', -1).each(function (post) { %>
-        <a class="tl-item" href="<%- url_for(post.path) %>">
-          <span class="tl-date"><%= date(post.date, 'YYYY-MM-DD') %></span>
-          <span class="tl-title"><%= post.title %></span>
-        </a>
+        <%- partial('_partial/acard', { post: post }) %>
       <% }) %>
+      </div>
     </div>
   <% }) %>
 </div>

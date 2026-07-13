@@ -1,0 +1,19 @@
+<% var cat0 = ''; post.categories.each(function (c) { if (!cat0) cat0 = c.name; }); %>
+<a class="acard reveal" href="<%- url_for(post.path) %>">
+  <% if (post.cover) { %>
+    <div class="acard-thumb" style="background-image:url('<%- url_for(post.cover) %>')"></div>
+  <% } else { %>
+    <div class="acard-thumb noimg"><span><%= cat0 || config.title %></span></div>
+  <% } %>
+  <div class="acard-body">
+    <div class="acard-meta">
+      <span><%= date(post.date, 'YYYY-MM-DD') %></span>
+      <% post.categories.each(function (c) { %><span class="acard-cat"><%= c.name %></span><% }) %>
+    </div>
+    <div class="acard-title"><%= post.title %></div>
+    <% if (post.excerpt) { %><div class="acard-excerpt"><%= post.excerpt %></div><% } %>
+    <% if (post.tags && post.tags.length) { %>
+    <div class="acard-tags"><% post.tags.each(function (t) { %><span>#<%= t.name %></span><% }) %></div>
+    <% } %>
+  </div>
+</a>
