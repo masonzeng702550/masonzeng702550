@@ -1,13 +1,13 @@
 <section class="home-hero reveal">
   <div class="hero-top">
-    <div class="hh-tag">~/ whoami</div>
-    <div class="lang-switch" role="group" aria-label="language">
+    <div class="hh-tag notranslate" translate="no">~/ whoami</div>
+    <div class="lang-switch notranslate" translate="no" role="group" aria-label="language">
       <button data-lang="zh" class="active">中</button>
       <button data-lang="en">EN</button>
       <button data-lang="ja">日</button>
     </div>
   </div>
-  <h1 class="hh-title"><%= config.title %></h1>
+  <h1 class="hh-title notranslate" translate="no"><%= config.title %></h1>
   <p class="hh-sub" data-i18n="sub"><%= config.subtitle %></p>
   <p class="hh-bio" data-i18n="bio"><%= config.bio %></p>
   <div class="hh-cta">
@@ -62,42 +62,32 @@
   </div>
 </section>
 
+<!-- whole-page auto translation via Google Website Translator, driven by the 中/EN/日 buttons -->
+<div id="google_translate_element" aria-hidden="true"></div>
 <script>
 (function () {
-  var I18N = {
-    zh: {
-      sub: '資安 · 航空 · 升學心得',
-      bio: '資安研究 · CTF 出題 · 學生飛行員 · 生成式 AI。臺北市數位實驗高中，把學到的東西寫成文章。',
-      cta_read: '讀文章', cta_proj: '看專案', cta_about: '關於我',
-      feat: '精選文章', more: '全部', topics: '分類與標籤', bubblenote: ''
-    },
-    en: {
-      sub: 'Security · Aviation · Study Notes',
-      bio: 'Security research, CTF authoring, student pilot, generative AI. A student at Taipei Municipal Digital Experimental High School — writing about what I learn.',
-      cta_read: 'Read Posts', cta_proj: 'Projects', cta_about: 'About',
-      feat: 'Featured', more: 'All', topics: 'Topics & Tags', bubblenote: ''
-    },
-    ja: {
-      sub: 'セキュリティ・航空・受験記録',
-      bio: 'セキュリティ研究・CTF作問・学生パイロット・生成AI。台北市デジタル実験高校の学生で、学んだことを記事にしています。',
-      cta_read: '記事を読む', cta_proj: 'プロジェクト', cta_about: '私について',
-      feat: '注目の記事', more: 'すべて', topics: 'カテゴリとタグ', bubblenote: ''
-    }
-  };
   var btns = document.querySelectorAll('.lang-switch button');
-  function apply(lang) {
-    var dict = I18N[lang] || I18N.zh;
-    document.querySelectorAll('[data-i18n]').forEach(function (el) {
-      var k = el.getAttribute('data-i18n');
-      if (dict[k]) el.textContent = dict[k];
-    });
-    btns.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang') === lang); });
-    try { localStorage.setItem('home-lang', lang); } catch (e) {}
-    document.documentElement.setAttribute('data-home-lang', lang);
+  function cookie(v) {
+    var host = location.hostname;
+    document.cookie = 'googtrans=' + v + ';path=/';
+    document.cookie = 'googtrans=' + v + ';path=/;domain=' + host;
+    document.cookie = 'googtrans=' + v + ';path=/;domain=.' + host;
   }
-  btns.forEach(function (b) { b.addEventListener('click', function () { apply(b.getAttribute('data-lang')); }); });
-  var saved = 'zh';
-  try { saved = localStorage.getItem('home-lang') || 'zh'; } catch (e) {}
-  if (saved !== 'zh') apply(saved);
+  function setLang(lang) {           // 'zh' = original, else 'en' / 'ja'
+    if (lang === 'zh') cookie('');
+    else cookie('/zh-CN/' + lang);
+    location.reload();
+  }
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); });
+  });
+  // mark active from current cookie
+  var m = document.cookie.match(/googtrans=\/[^/]+\/(\w+)/);
+  var cur = (m && m[1] && m[1] !== 'zh' && m[1] !== 'zh-TW') ? m[1] : 'zh';
+  btns.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang') === cur); });
 })();
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({ pageLanguage: 'zh-CN', includedLanguages: 'en,ja', autoDisplay: false }, 'google_translate_element');
+}
 </script>
+<script src="https://translate.googleapis.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
