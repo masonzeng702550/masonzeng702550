@@ -1,0 +1,25 @@
+<article class="post-layout">
+  <aside class="post-aside">
+    <div class="aside-label">Contents</div>
+    <%- toc(page.content, { list_number: false }) %>
+  </aside>
+  <div class="post-main">
+    <div class="post-tagline"><b>~/blog</b> $ read <%= page.slug %></div>
+    <h1 class="post-title"><%= page.title %></h1>
+    <% if (page.excerpt){ %><div class="post-excerpt"><%= page.excerpt %></div><% } %>
+    <%
+      var chars = page.content.replace(/<[^>]+>/g, '').replace(/\s/g, '').length;
+      var mins = Math.max(1, Math.ceil(chars / 450));
+    %>
+    <div class="post-meta">
+      <span><%= date(page.date, 'YYYY-MM-DD') %></span>
+      <span>約 <%= chars %> 字</span>
+      <span><%= mins %> 分鐘閱讀</span>
+      <% if (page.categories && page.categories.length){ %><span class="post-cats"><% page.categories.forEach(function (c) { %><a href="<%- url_for(c.path) %>"><%= c.name %></a><% }) %></span><% } %>
+      <% if (page.tags && page.tags.length){ %><span class="post-tags"><% page.tags.forEach(function (t) { %><a href="<%- url_for(t.path) %>">#<%= t.name %></a> <% }) %></span><% } %>
+    </div>
+    <div class="post-content"><%- page.content %></div>
+    <div class="claps"><button class="clap-btn" data-slug="<%= page.slug %>">拍手 · <span class="cn">0</span></button></div>
+    <%- partial('_partial/comments') %>
+  </div>
+</article>

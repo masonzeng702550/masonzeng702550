@@ -1,0 +1,12 @@
+# Mason theme config
+
+# Comments — Giscus (GitHub Discussions).
+giscus:
+  repo: masonzeng702550/masonzeng702550
+  repoId: R_kgDOSbOV9g
+  category: Announcements
+  categoryId: DIC_kwDOSbOV9s4DBE9z
+
+# Waline (anonymous comments alternative; set serverURL to use instead):
+waline:
+  serverURL:

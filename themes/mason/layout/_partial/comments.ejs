@@ -1,0 +1,32 @@
+<div class="comments">
+  <div class="comments-label">COMMENTS</div>
+<% if (theme.giscus && theme.giscus.repo && theme.giscus.repoId) { %>
+  <script src="https://giscus.app/client.js"
+    data-repo="<%= theme.giscus.repo %>"
+    data-repo-id="<%= theme.giscus.repoId %>"
+    data-category="<%= theme.giscus.category %>"
+    data-category-id="<%= theme.giscus.categoryId %>"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="noborder_dark"
+    data-lang="zh-TW"
+    crossorigin="anonymous"
+    async></script>
+<% } else if (theme.waline && theme.waline.serverURL) { %>
+  <div id="waline"></div>
+  <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css"/>
+  <script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    init({ el: '#waline', serverURL: '<%= theme.waline.serverURL %>', dark: 'auto', lang: 'zh-TW' });
+  </script>
+<% } else { %>
+  <div class="giscus-ph"><b>留言區（尚未啟用）</b><br>
+    <b>Giscus</b>（GitHub 登入）：repo 開 Discussions、裝 giscus app，把 repo/category ID 填進 <code>themes/mason/_config.yml</code>。<br>
+    <b>Waline / Twikoo</b>（可匿名，適合升學讀者）：部署後端後把 serverURL 填進同一檔。<br>
+    兩者擇一，主題已預接。
+  </div>
+<% } %>
+</div>

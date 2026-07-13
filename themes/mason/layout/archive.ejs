@@ -1,0 +1,24 @@
+<div class="list-head">
+  <div class="k"><%= page.tag ? 'Tag' : (page.category ? 'Category' : 'Archives') %></div>
+  <h1><%= page.tag || page.category || '全部文章' %></h1>
+</div>
+<div class="post-list">
+<% page.posts.each(function (post) { %>
+  <a class="pcard reveal" href="<%- url_for(post.path) %>">
+    <div class="pdate"><%= date(post.date, 'YYYY-MM-DD') %></div>
+    <div class="ptitle"><%= post.title %></div>
+    <% if (post.excerpt) { %><div class="pexcerpt"><%= post.excerpt %></div><% } %>
+    <div class="pmeta">
+      <% if (post.categories && post.categories.length) { post.categories.forEach(function (c) { %><span><%= c.name %></span><% }) } %>
+      <% if (post.tags && post.tags.length) { post.tags.forEach(function (t) { %><span>#<%= t.name %></span><% }) } %>
+    </div>
+  </a>
+<% }) %>
+</div>
+<% if (page.total > 1) { %>
+<div class="pager">
+  <% if (page.prev) { %><a href="<%- url_for(page.prev_link) %>">← 新</a><% } else { %><span>← 新</span><% } %>
+  <span><%= page.current %> / <%= page.total %></span>
+  <% if (page.next) { %><a href="<%- url_for(page.next_link) %>">舊 →</a><% } else { %><span>舊 →</span><% } %>
+</div>
+<% } %>
