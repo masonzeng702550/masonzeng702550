@@ -176,14 +176,6 @@
   "url": "https://github.com/masonzeng702550/github-status-rotator"
  },
  {
-  "name": "nishinari-presentation",
-  "domain": "其他",
-  "desc": "介紹大阪西成區的網頁簡報，以日式排版與圖文呈現當地廉價旅館、日雇勞工與飛田等社會樣貌。",
-  "lang": "HTML",
-  "stars": 0,
-  "url": "https://github.com/masonzeng702550/nishinari-presentation"
- },
- {
   "name": "chatgpt_arduino_program_creater",
   "domain": "其他",
   "desc": "透過 ChatGPT 協助使用者自動生成 Arduino 程式碼的輔助工具。",
