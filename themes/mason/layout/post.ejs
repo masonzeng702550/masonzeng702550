@@ -19,7 +19,6 @@
       <% if (page.tags && page.tags.length){ %><span class="post-tags"><% page.tags.forEach(function (t) { %><a href="<%- url_for(t.path) %>">#<%= t.name %></a> <% }) %></span><% } %>
     </div>
     <div class="post-content"><%- page.content %></div>
-    <div class="claps"><button class="clap-btn" data-slug="<%= page.slug %>">拍手 · <span class="cn">0</span></button></div>
     <%- partial('_partial/comments') %>
   </div>
 </article>

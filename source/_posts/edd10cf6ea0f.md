@@ -60,5 +60,3 @@ Discord連結:[https://discord.com/invite/lumaai](https://discord.com/invite/lum
 By [那個成天泡在電腦裡的梅森](https://medium.com/@masonlifemaker) on [December 28, 2023](https://medium.com/p/edd10cf6ea0f).
 
 [Canonical link](https://medium.com/@masonlifemaker/hello-%E5%A4%A7%E5%AE%B6%E5%A5%BD%E6%88%91%E6%98%AF%E6%A2%85%E6%A3%AEmason-%E6%9C%80%E8%BF%91%E7%99%BC%E7%8F%BE%E4%BA%86%E4%B8%89%E5%80%8B%E8%A0%BB%E5%AF%A6%E7%9A%84ai%E7%B7%9A%E4%B8%8A3d%E6%A8%A1%E5%9E%8B%E7%94%A2%E7%94%9F%E6%9C%8D%E5%8B%99-%E6%AF%94%E8%B5%B7%E4%B9%8B%E5%89%8D%E4%BB%8B%E7%B4%B9%E9%81%8E%E7%9A%84shap-e%E6%9B%B4%E5%8A%A0%E6%96%B9%E4%BE%BF-%E5%9B%A0%E7%82%BA%E6%98%AF%E7%B7%9A%E4%B8%8A%E7%94%9F%E6%88%90%E7%9A%84%E7%B7%A3%E6%95%85-%E4%B8%8D%E5%83%85%E5%B0%8D%E6%96%BC%E7%A1%AC%E9%AB%94%E6%B2%92%E6%9C%89%E7%89%B9%E5%88%A5%E8%A6%81%E6%B1%82-%E9%82%84%E5%A4%A7%E5%A4%A7%E6%B8%9B%E5%B0%91%E7%94%9F%E6%88%90%E7%9A%84%E6%99%82%E9%96%93-%E9%96%80%E6%AA%BB%E4%B9%9F%E9%99%8D-edd10cf6ea0f)
-
-Exported from [Medium](https://medium.com) on July 12, 2026.

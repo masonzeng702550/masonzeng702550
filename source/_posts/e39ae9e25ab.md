@@ -29,5 +29,3 @@ source: https://masonlifemaker.medium.com/e39ae9e25ab
 By [那個成天泡在電腦裡的梅森](https://medium.com/@masonlifemaker) on [May 9, 2021](https://medium.com/p/e39ae9e25ab).
 
 [Canonical link](https://medium.com/@masonlifemaker/python-vpython-unit-03-%E8%87%AA%E7%94%B1%E8%90%BD%E9%AB%94-e39ae9e25ab)
-
-Exported from [Medium](https://medium.com) on July 12, 2026.
