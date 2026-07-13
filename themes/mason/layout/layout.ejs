@@ -4,6 +4,14 @@
 <%- partial('_partial/head') %>
 </head>
 <body>
+<div id="pageload" aria-hidden="true">
+  <div class="pl-inner">
+    <div class="pl-brand notranslate" translate="no"><span class="pl-dot"></span><%= config.title %></div>
+    <div class="pl-line"><span></span></div>
+    <div class="pl-tag notranslate" translate="no">booting…</div>
+  </div>
+</div>
+<script>(function(){function done(){var p=document.getElementById('pageload');if(!p||p.classList.contains('done'))return;p.classList.add('done');setTimeout(function(){if(p.parentNode)p.parentNode.removeChild(p);},600);}if(document.readyState==='complete'){setTimeout(done,250);}else{window.addEventListener('load',function(){setTimeout(done,250);});}setTimeout(done,2600);})();</script>
 <div class="progress"></div>
 <header class="site-header">
   <div class="nav">
