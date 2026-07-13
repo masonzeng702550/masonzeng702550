@@ -327,3 +327,37 @@ font[style]{background:transparent!important;box-shadow:none!important}
   .tl-item{gap:10px;flex-wrap:wrap}
   .tl-cat{flex-basis:100%;padding-left:90px}
 }
+
+/* ---------- interactive: terminal / game / ripple ---------- */
+.term-play{background:none;border:1px solid var(--border);color:var(--cyan);font:inherit;font-size:.82rem;padding:.28rem .7rem;border-radius:6px;cursor:pointer;transition:.15s}
+.term-play:hover{border-color:var(--cyan);box-shadow:0 0 12px rgba(34,211,238,.25)}
+.term-widget{background:#070b14;border:1px solid var(--border);border-radius:12px;overflow:hidden;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;box-shadow:0 0 0 1px rgba(34,211,238,.05),0 18px 40px -24px rgba(0,0,0,.8)}
+.tw-bar{display:flex;align-items:center;gap:6px;padding:.5rem .8rem;background:#0b1120;border-bottom:1px solid var(--border)}
+.tw-bar .dd{width:11px;height:11px;border-radius:50%}
+.dd.r{background:#ff5f56}.dd.y{background:#ffbd2e}.dd.g{background:#27c93f}
+.tw-title{margin-left:.5rem;font-size:.78rem;color:var(--muted)}
+.tw-body{padding:.9rem 1rem;max-height:260px;overflow-y:auto;font-size:.86rem;line-height:1.7}
+.tw-line{white-space:pre-wrap;word-break:break-word}
+.tw-out{color:#a7b4c8}.tw-out b{color:var(--cyan);font-weight:600}
+.tw-out.ok{color:var(--green)}.tw-out.err{color:#f87171}
+.tw-fetch{color:var(--violet);margin:0;font-size:.82rem;line-height:1.5}
+.tw-prompt{color:var(--green);user-select:none}
+.tw-cmd{color:#e6edf6}
+.tw-inline{display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem;border-top:1px solid var(--border);background:#080d18}
+.tw-inline input{flex:1;background:none;border:none;outline:none;color:#e6edf6;font:inherit;font-size:.86rem;caret-color:var(--cyan)}
+.tw-inline input::placeholder{color:var(--muted)}
+
+.click-ripple{position:fixed;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;border:2px solid var(--cyan);pointer-events:none;z-index:9997;animation:ripple .6s ease-out forwards}
+@keyframes ripple{0%{opacity:.7;transform:scale(.4)}100%{opacity:0;transform:scale(6)}}
+
+.game-modal{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(3,5,10,.82);backdrop-filter:blur(4px);animation:gmfade .2s ease}
+@keyframes gmfade{from{opacity:0}to{opacity:1}}
+.game-box{background:#0a0e1a;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 0 60px -12px rgba(34,211,238,.35);max-width:94vw}
+.game-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem 1rem;border-bottom:1px solid var(--border);font-family:ui-monospace,monospace}
+.game-head>span:first-child{color:var(--cyan);font-weight:700;letter-spacing:.12em}
+.game-score{color:var(--gold);font-size:.9rem;margin-left:auto}
+.game-close{background:none;border:none;color:var(--muted);font-size:1rem;cursor:pointer;padding:.1rem .4rem;border-radius:5px}
+.game-close:hover{color:#fff;background:rgba(255,255,255,.08)}
+.game-canvas{display:block;width:600px;max-width:88vw;height:auto;background:#0a0e1a;touch-action:none}
+.game-hint{padding:.55rem 1rem;font-size:.74rem;color:var(--muted);text-align:center;font-family:ui-monospace,monospace;border-top:1px solid var(--border)}
+@media(max-width:640px){.tw-body{max-height:200px}}

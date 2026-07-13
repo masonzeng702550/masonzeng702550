@@ -18,6 +18,17 @@
 </section>
 
 <section class="home-block reveal">
+  <div class="hb-head"><span class="hb-k">§ TERMINAL</span><h2 data-i18n="term">互動終端機</h2><button class="hb-more term-play" type="button" onclick="launchGame()">玩小遊戲 ▸</button></div>
+  <div class="term-widget notranslate" translate="no">
+    <div class="tw-bar"><span class="dd r"></span><span class="dd y"></span><span class="dd g"></span><span class="tw-title">mason@blog: ~</span></div>
+    <div class="tw-body" id="twBody">
+      <div class="tw-line"><span class="tw-out">歡迎來到 MaZon.log。輸入 <b>help</b> 看可用指令，或 <b>game</b> 玩打磚塊。</span></div>
+    </div>
+    <div class="tw-inline"><span class="tw-prompt">mason@blog:~$</span><input id="twInput" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="terminal input"></div>
+  </div>
+</section>
+
+<section class="home-block reveal">
   <div class="hb-head"><span class="hb-k">§ FEATURED</span><h2 data-i18n="feat">精選文章</h2><a class="hb-more" data-i18n="more" href="<%- url_for('/posts/') %>">全部</a></div>
   <div class="acard-grid">
   <% site.posts.sort('date', -1).limit(6).each(function (post) { %>
