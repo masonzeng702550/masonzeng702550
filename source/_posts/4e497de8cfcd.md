@@ -9,7 +9,6 @@ tags:
   - HTML
   - 爬蟲
 cover: /images/4e497de8cfcd/img01.png
-excerpt: "Hello,大家好我是梅森Mason，今天我要帶各位來分析HTML原始碼。"
 comments: true
 source: https://masonlifemaker.medium.com/4e497de8cfcd
 ---

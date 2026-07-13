@@ -8,7 +8,6 @@ tags:
   - 展覽
   - 3D列印
 cover: /images/ca4979ec1afb/img01.jpg
-excerpt: "Hello,大家好我是梅森Mason，最近參加了在今年8月底的台灣機器人與智慧自動化展及3D列印暨積層製造設備展，兩個場展覽的展場包含了南港展覽館的1館和2館，參加廠商高達850家，規模相當驚人，主題分為「工業4.0夥伴專區」、「服務智動化區」、「智慧生活應用區」、「服務型機器人…"
 comments: true
 source: https://masonlifemaker.medium.com/ca4979ec1afb
 ---
