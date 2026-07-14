@@ -13,7 +13,11 @@
   var box = document.getElementById('sq'), out = document.getElementById('sresults'), cnt = document.getElementById('scount'), data = null;
   fetch(ROOT.replace(/\/$/, '') + '/search.json').then(function (r) { return r.json(); }).then(function (d) { data = d; run(); });
   function esc(s) { return (s || '').replace(/[&<>]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]; }); }
-  function link(u) { if (/^https?:/.test(u)) return u; u = u.replace(/^\//, ''); return ROOT.replace(/\/$/, '') + '/' + u; }
+  function link(u) {
+    if (/^https?:/.test(u)) return u;
+    if (u.charAt(0) === '/') return u;                 // searchdb urls are already root-absolute
+    return ROOT.replace(/\/$/, '') + '/' + u;
+  }
   function run() {
     var q = box.value.trim().toLowerCase();
     if (!data) { return; }

@@ -46,6 +46,11 @@
       <a href="<%- url_for('/projects/') %>">專案</a>
       <a href="<%- url_for('/about/') %>">關於</a>
       <a href="<%- url_for('/search/') %>">搜尋</a>
+      <div class="lang-switch notranslate" translate="no" role="group" aria-label="language">
+        <button type="button" data-lang="zh" class="active">中</button>
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="ja">日</button>
+      </div>
     </nav>
   </div>
 </header>
@@ -65,5 +70,31 @@
 <script>window.SITE_ROOT="<%- url_for('/') %>";</script>
 <script src="<%- url_for('/js/blog.js') %>?v=<%= config.asset_v %>"></script>
 <script src="<%- url_for('/js/interactive.js') %>?v=<%= config.asset_v %>"></script>
+
+<!-- whole-site auto translation (Google Website Translator), driven by 中/EN/日 in the nav -->
+<div id="google_translate_element" aria-hidden="true"></div>
+<script>
+(function () {
+  function cookie(v) {
+    var host = location.hostname;
+    document.cookie = 'googtrans=' + v + ';path=/';
+    document.cookie = 'googtrans=' + v + ';path=/;domain=' + host;
+    document.cookie = 'googtrans=' + v + ';path=/;domain=.' + host;
+  }
+  function setLang(lang) {                 // 'zh' = original Traditional Chinese
+    if (lang === 'zh') cookie(''); else cookie('/zh-TW/' + lang);
+    location.reload();
+  }
+  var btns = [].slice.call(document.querySelectorAll('.lang-switch button'));
+  btns.forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); }); });
+  var m = document.cookie.match(/googtrans=\/[^/]+\/(\w+)/);
+  var cur = (m && m[1] && m[1].indexOf('zh') !== 0) ? m[1] : 'zh';
+  btns.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang') === cur); });
+})();
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({ pageLanguage: 'zh-TW', includedLanguages: 'en,ja', autoDisplay: false }, 'google_translate_element');
+}
+</script>
+<script src="https://translate.googleapis.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
