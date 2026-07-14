@@ -8,11 +8,12 @@
 </div>
 
 <div class="posts-view" id="view-time">
-  <div class="acard-grid">
+  <div class="acard-grid" id="postsGrid">
   <% site.posts.sort('date', -1).each(function (post) { %>
     <%- partial('_partial/acard', { post: post }) %>
   <% }) %>
   </div>
+  <div class="load-more-wrap"><button type="button" id="loadMore" class="load-more">看更多</button></div>
 </div>
 
 <div class="posts-view" id="view-cat" hidden>

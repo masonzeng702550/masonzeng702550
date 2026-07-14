@@ -10,20 +10,7 @@
     <a class="btn" data-i18n="cta_proj" href="<%- url_for('/projects/') %>">看專案</a>
     <a class="btn" data-i18n="cta_about" href="<%- url_for('/about/') %>">關於我</a>
   </div>
-  <a class="scroll-cue notranslate" translate="no" href="#whoami" aria-label="scroll down">SCROLL <span class="cue-ar">▼</span></a>
-</section>
-
-<section id="whoami" class="home-block home-intro reveal">
-  <div class="hb-head"><span class="hb-k notranslate" translate="no">&gt; whoami</span><h2 data-i18n="about_me">關於我</h2></div>
-  <p class="intro-lede" data-i18n="intro_lede">我是 曾緯淳（Mason），臺北市數位實驗高級中學的學生。上課以外的時間，多半在拆解、理解，然後把東西重新組回更好的樣子。</p>
-  <div class="intro-roles">
-    <p class="intro-line reveal">我是個 <span class="intro-role r-cyan">資安研究者</span>。從程式自動化開始碰技術，一路走進 Web 安全、密碼學與滲透測試，習慣把系統整個拆開，看它到底怎麼運作。</p>
-    <p class="intro-line reveal">我是個 <span class="intro-role r-violet">CTF 出題者</span>。在 AIS3、HITCON 與各校聯賽裡解題，也在跨校資安社團「零日餅乾社」當課程組長，把自己踩過的坑，變成別人要破的題目。</p>
-    <p class="intro-line reveal">我是個 <span class="intro-role r-green">學生飛行員</span>。從模擬飛行熟悉 DA40、A320、B777、B787，到無人機空拍，天空一直是我的另一個主場，也是航空研究社的副社長。</p>
-    <p class="intro-line reveal">我是個 <span class="intro-role r-gold">生成式 AI 開發者</span>。喜歡用 AI 把想法快速變成能跑的專案，從影像辨識回收到航空訓練工具都做過。</p>
-    <p class="intro-line reveal">我是個 <span class="intro-role r-cyan">發明家</span>。手上有三項專利，享受把一個念頭慢慢打磨成真正能用的東西。</p>
-    <p class="intro-line reveal">我還是個 <span class="intro-role r-violet">分享者</span>。把學到的寫成文章、站上台演講 — 知識的價值，要在流通的時候才會被放大。</p>
-  </div>
+  <a class="scroll-cue notranslate" translate="no" href="#featured" aria-label="scroll down">SCROLL <span class="cue-ar">▼</span></a>
 </section>
 
 <section class="home-block reveal">
@@ -37,7 +24,7 @@
   </div>
 </section>
 
-<section class="home-block reveal">
+<section id="featured" class="home-block reveal">
   <div class="hb-head"><span class="hb-k">§ FEATURED</span><h2 data-i18n="feat">精選文章</h2><a class="hb-more" data-i18n="more" href="<%- url_for('/posts/') %>">全部</a></div>
   <div class="acard-grid">
   <% site.posts.sort('date', -1).limit(6).each(function (post) { %>

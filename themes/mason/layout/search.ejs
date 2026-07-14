@@ -29,6 +29,7 @@
       var snip = i >= 0 ? c.substr(Math.max(0, i - 30), 140) : c.substr(0, 140);
       return '<a class="sr" href="' + link(p.url) + '"><div class="sr-t">' + esc(p.title) + '</div><div class="sr-s">…' + esc(snip) + '…</div></a>';
     }).join('') : '<div class="sr-empty">沒有符合「' + esc(box.value) + '」的結果</div>';
+    if (window.__retranslate) window.__retranslate();
   }
   box.addEventListener('input', run);
 })();

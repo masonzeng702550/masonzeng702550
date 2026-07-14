@@ -21,7 +21,10 @@
       (window.visualViewport && window.visualViewport.height) || screen.height || 800;
   }
   function reveal(el) {
-    if (el.__rv) return; el.__rv = 1; shown.push(el);
+    if (el.__rv) return;
+    var r = el.getBoundingClientRect();
+    if (r.width === 0 && r.height === 0) return;   // hidden (display:none) — reveal later when shown
+    el.__rv = 1; shown.push(el);
     el.classList.add('in'); el.style.opacity = '1'; el.style.transform = 'none';
   }
   function reassert() {
@@ -59,6 +62,32 @@
     var H = vh();
     all.forEach(function (e) { if (e.__rv) return; if (e.getBoundingClientRect().top < H * 1.1) reveal(e); });
   }, 4500);
+
+  // posts list "看更多" — show a batch, reveal more on click (each new card fades up)
+  var moreBtn = document.getElementById('loadMore');
+  var pgrid = document.getElementById('postsGrid');
+  if (moreBtn && pgrid) {
+    var STEP = 9;
+    var cards = [].slice.call(pgrid.querySelectorAll('.acard'));
+    var vis = Math.min(STEP, cards.length);
+    cards.forEach(function (c, i) { if (i >= STEP) c.classList.add('hidden-more'); });
+    function label() {
+      var left = cards.length - vis;
+      if (left <= 0) { moreBtn.style.display = 'none'; }
+      else { moreBtn.textContent = '看更多（還有 ' + left + ' 篇）'; }
+    }
+    if (cards.length <= STEP) moreBtn.style.display = 'none'; else label();
+    moreBtn.addEventListener('click', function () {
+      var end = Math.min(vis + STEP, cards.length);
+      for (var i = vis; i < end; i++) cards[i].classList.remove('hidden-more');
+      vis = end;
+      requestAnimationFrame(function () {
+        for (var i = 0; i < vis; i++) reveal(cards[i]);
+        if (window.__retranslate) window.__retranslate();
+      });
+      label();
+    });
+  }
 
   // TOC active on scroll
   var links = [].slice.call(document.querySelectorAll('.post-aside .toc-link'));
