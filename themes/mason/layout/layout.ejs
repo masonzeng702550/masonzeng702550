@@ -4,14 +4,36 @@
 <%- partial('_partial/head') %>
 </head>
 <body>
-<div id="pageload" aria-hidden="true">
-  <div class="pl-inner">
-    <div class="pl-brand notranslate" translate="no"><span class="pl-dot"></span><%= config.title %></div>
-    <div class="pl-line"><span></span></div>
-    <div class="pl-tag notranslate" translate="no">booting…</div>
-  </div>
-</div>
-<script>(function(){function done(){var p=document.getElementById('pageload');if(!p||p.classList.contains('done'))return;p.classList.add('done');setTimeout(function(){if(p.parentNode)p.parentNode.removeChild(p);},600);}if(document.readyState==='complete'){setTimeout(done,250);}else{window.addEventListener('load',function(){setTimeout(done,250);});}setTimeout(done,2600);})();</script>
+<div id="boot" aria-hidden="true" class="notranslate" translate="no"><pre id="boot-text"></pre></div>
+<script>(function(){
+  var boot=document.getElementById('boot');if(!boot)return;
+  var el=document.getElementById('boot-text');
+  function remove(){if(boot.parentNode)boot.parentNode.removeChild(boot);}
+  function done(){boot.classList.add('done');setTimeout(remove,650);}
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var seen=false;try{seen=sessionStorage.getItem('booted')==='1';}catch(e){}
+  if(seen||reduce){boot.style.display='none';remove();return;}
+  var lines=[
+    {t:'[<span class="ok">  OK  </span>] Booting <span class="label">mason@blog</span>',d:120},
+    {t:'[<span class="ok">  OK  </span>] Loading user: <span class="label">曾緯淳 (Mason Zeng)</span>',d:140},
+    {t:'[<span class="ok">  OK  </span>] Patents indexed: <span class="label">3</span>',d:120},
+    {t:'[<span class="ok">  OK  </span>] Posts indexed: <span class="label"><%= site.posts.length %></span>',d:120},
+    {t:'[<span class="warn"> WARN </span>] LLM jailbreak detector: <span class="label">enabled</span>',d:140},
+    {t:'[<span class="ok">  OK  </span>] Reached target <span class="label"><%= config.title %></span>',d:160},
+    {t:'',d:120},
+    {t:'<span class="dim">Last login: 2026-07-14 from 0.0.0.0</span>',d:180}
+  ];
+  var i=0;
+  function next(){
+    if(i>=lines.length){try{sessionStorage.setItem('booted','1');}catch(e){}setTimeout(done,350);return;}
+    el.innerHTML=el.innerHTML.replace(/<span class="cursor"><\/span>$/,'');
+    el.innerHTML+=lines[i++].t+'\n<span class="cursor"></span>';
+    setTimeout(next,lines[i-1].d);
+  }
+  function start(){setTimeout(next,180);}
+  if(document.readyState==='complete')start();else window.addEventListener('load',start);
+  setTimeout(function(){try{sessionStorage.setItem('booted','1');}catch(e){}done();},4500);
+})();</script>
 <div class="progress"></div>
 <header class="site-header">
   <div class="nav">
