@@ -10,10 +10,8 @@
     <a class="btn" data-i18n="cta_proj" href="<%- url_for('/projects/') %>">看專案</a>
     <a class="btn" data-i18n="cta_about" href="<%- url_for('/about/') %>">關於我</a>
   </div>
-  <a class="scroll-more notranslate" translate="no" href="#featured">了解更多 <span class="sm-ar">↓</span></a>
-  <a class="scroll-anim notranslate" translate="no" href="#featured" aria-label="scroll down">
-    <span class="sa-mouse"><span class="sa-wheel"></span></span>
-    <span class="sa-word">SCROLL</span>
+  <a class="scroll-arrow notranslate" translate="no" href="#featured" aria-label="往下">
+    <svg viewBox="0 0 28 12" width="34" height="15" aria-hidden="true"><path d="M3 3 L14 10 L25 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </a>
 </section>
 
@@ -57,18 +55,17 @@
 <section class="home-block reveal">
   <div class="hb-head"><span class="hb-k">§ GITHUB</span><h2 data-i18n="gh_h">開發足跡</h2><a class="hb-more" href="https://github.com/masonzeng702550" target="_blank" rel="noopener">@masonzeng702550</a></div>
   <div class="gh-graph">
-    <img loading="lazy" alt="GitHub 貢獻活動圖" src="https://github-readme-activity-graph.vercel.app/graph?username=masonzeng702550&bg_color=141517&color=b0b3b8&line=8aa8b6&point=8aa8b6&area=true&area_color=8aa8b6&hide_border=true&custom_title=Contribution+Activity&height=300">
+    <img loading="lazy" alt="GitHub 貢獻折線圖" src="https://github-readme-activity-graph.vercel.app/graph?username=masonzeng702550&bg_color=141517&color=b0b3b8&line=8aa8b6&point=8aa8b6&area=true&area_color=8aa8b6&hide_border=true&custom_title=Contribution+Activity&height=300">
   </div>
-  <div class="gh-stats">
-    <img loading="lazy" alt="GitHub 統計" src="https://github-readme-stats-roan-five.vercel.app/api?username=masonzeng702550&show_icons=true&hide_border=true&theme=transparent&title_color=8aa8b6&icon_color=8aa8b6&text_color=b0b3b8&include_all_commits=true&count_private=true">
-    <img loading="lazy" alt="常用語言" src="https://github-readme-stats-roan-five.vercel.app/api/top-langs/?username=masonzeng702550&layout=compact&hide_border=true&theme=transparent&title_color=8aa8b6&text_color=b0b3b8&langs_count=8">
+  <div class="gh-cal">
+    <img loading="lazy" alt="GitHub 貢獻格子圖" src="https://ghchart.rshah.org/8aa8b6/masonzeng702550">
   </div>
 </section>
 
 <section class="home-block reveal">
   <div class="hb-head"><span class="hb-k">§ PROJECTS</span><h2 data-i18n="projects_h">專案</h2><a class="hb-more" data-i18n="more" href="<%- url_for('/projects/') %>">全部</a></div>
   <%
-    var featNames = ['verus-bridge-forensics','VOXATC-voice_air_traffic_communication_trainer','incense','recycle-ai-tw','my.msfs-flightlog24.com','secure-vault-solidity'];
+    var featNames = ['verus-bridge-forensics','secure-vault-solidity','AIS3-ESP32-ICS-Simulator-Hardware-Control','VOXATC-voice_air_traffic_communication_trainer','flightdeck','incense','Elevator-Car-Simulation-Module_for_IEYI2025','keep-awake'];
     var byName = {}; (site.data.projects || []).forEach(function (p) { byName[p.name] = p; });
   %>
   <div class="proj-grid">
@@ -94,8 +91,7 @@
       { n: 'vtsim-web', d: '維也納測驗模擬器', u: 'https://masonzeng702550.github.io/vtsim-web/', img: '/images/previews/vtsim.png' },
       { n: 'DICAGO', d: '航空英語 ICAO 訓練', u: 'https://masonzeng702550.github.io/DICAGO/', img: '/images/previews/dicago.png' },
       { n: "I'm Python, NOT snake", d: '換色貪食蛇 CTF 網頁', u: 'https://masonzeng702550.github.io/I-m-_Python-_NOT_snake/', img: '/images/previews/snake.png' },
-      { n: 'J50ANESE', d: '日文五十音學習', u: 'https://masonzeng702550.github.io/J50ANESE/', img: '/images/previews/j50anese.png' },
-      { n: 'tschool_web', d: 'T-School 招生官網', u: 'https://masonzeng702550.github.io/tschool_web/', img: '/images/previews/tschoolweb.png' }
+      { n: 'J50ANESE', d: '日文五十音學習', u: 'https://masonzeng702550.github.io/J50ANESE/', img: '/images/previews/j50anese.png' }
     ];
   %>
   <div class="demo-grid">
