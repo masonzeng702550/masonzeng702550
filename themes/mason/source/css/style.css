@@ -10,7 +10,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:96px}
-:target,#featured,.home-block[id]{scroll-margin-top:96px}
+:target{scroll-margin-top:96px}
 body{background:var(--bg);color:var(--text-soft);font-family:var(--font-sans);font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
 a{color:var(--cyan);text-decoration:none;transition:var(--transition)}
 a:hover{color:var(--text)}

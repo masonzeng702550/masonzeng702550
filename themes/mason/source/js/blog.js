@@ -63,17 +63,26 @@
     all.forEach(function (e) { if (e.__rv) return; if (e.getBoundingClientRect().top < H * 1.1) reveal(e); });
   }, 4500);
 
-  // homepage: one downward wheel flick from the hero snaps to the Featured heading
+  // homepage: arrow / one downward wheel flick snaps to the hero's bottom divider line
   var featSec = document.getElementById('featured');
   if (featSec) {
+    var heroEl = document.querySelector('.home-hero');
+    var headerEl = document.querySelector('.site-header');
+    function scrollToLine() {
+      if (!heroEl) { featSec.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+      var y = window.scrollY || document.documentElement.scrollTop;
+      var lineY = heroEl.getBoundingClientRect().bottom + y;      // hero's bottom border line
+      var off = (headerEl ? headerEl.offsetHeight : 64) + 8;      // sit the line just under the header
+      window.scrollTo({ top: Math.max(0, Math.round(lineY - off)), behavior: 'smooth' });
+    }
+    var arrowEl = document.querySelector('.scroll-arrow');
+    if (arrowEl) arrowEl.addEventListener('click', function (e) { e.preventDefault(); scrollToLine(); });
     var snapLock = false;
     window.addEventListener('wheel', function (e) {
       if (snapLock) return;
       var y = window.scrollY || document.documentElement.scrollTop;
       if (e.deltaY > 4 && y < window.innerHeight * 0.45) {
-        snapLock = true;
-        e.preventDefault();
-        featSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        snapLock = true; e.preventDefault(); scrollToLine();
         setTimeout(function () { snapLock = false; }, 900);
       }
     }, { passive: false });
