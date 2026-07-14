@@ -10,16 +10,33 @@
   });
   if (totop) totop.onclick = function () { window.scrollTo({ top: 0, behavior: 'smooth' }); };
 
-  // reveal
-  var io = new IntersectionObserver(function (es) {
-    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.05 });
-  document.querySelectorAll('.reveal').forEach(function (e) { io.observe(e); });
-  setTimeout(function () {
-    document.querySelectorAll('.reveal:not(.in)').forEach(function (e) {
-      if (e.getBoundingClientRect().top < window.innerHeight) e.classList.add('in');
+  // reveal on scroll — robust against Google-Translate DOM churn:
+  // once shown, we pin the final state with INLINE styles (survive class stripping)
+  // and re-assert a few times after load in case the translator re-processes the DOM.
+  var shown = [];
+  function reveal(el) {
+    if (el.__rv) return; el.__rv = 1; shown.push(el);
+    el.classList.add('in'); el.style.opacity = '1'; el.style.transform = 'none';
+  }
+  function reassert() {
+    shown.forEach(function (el) {
+      if (!el.classList.contains('in')) el.classList.add('in');
+      if (el.style.opacity !== '1') el.style.opacity = '1';
+      if (el.style.transform !== 'none') el.style.transform = 'none';
     });
-  }, 400);
+  }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); } });
+  }, { threshold: 0.06, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.reveal').forEach(function (e) { io.observe(e); });
+  function sweep() {
+    document.querySelectorAll('.reveal').forEach(function (e) {
+      var r = e.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.94 && r.bottom > 0) reveal(e);
+    });
+  }
+  window.addEventListener('load', function () { setTimeout(sweep, 60); });
+  [300, 900, 1800, 3200].forEach(function (t) { setTimeout(reassert, t); });
 
   // TOC active on scroll
   var links = [].slice.call(document.querySelectorAll('.post-aside .toc-link'));
