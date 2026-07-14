@@ -424,3 +424,18 @@ font[style]{background:transparent!important;box-shadow:none!important}
 .scroll-more:hover{border-color:var(--muted);color:var(--text)}
 .scroll-more .sm-ar{transition:transform .25s}
 .scroll-more:hover .sm-ar{transform:translateY(3px)}
+
+/* ---------- animated scroll-down indicator (before Featured) ---------- */
+.scroll-anim{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:9px;text-decoration:none}
+.sa-mouse{width:22px;height:34px;border:1.5px solid var(--border-bright);border-radius:12px;position:relative;display:block}
+.sa-wheel{position:absolute;left:50%;top:6px;width:3px;height:6px;margin-left:-1.5px;border-radius:2px;background:var(--muted);animation:sawheel 1.7s cubic-bezier(.3,0,.2,1) infinite}
+.sa-word{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.3em;color:var(--muted)}
+.scroll-anim:hover .sa-mouse{border-color:var(--muted)}
+@keyframes sawheel{0%{opacity:0;transform:translateY(-3px)}25%{opacity:1}55%{opacity:1;transform:translateY(11px)}100%{opacity:0;transform:translateY(11px)}}
+@media(prefers-reduced-motion:reduce){.sa-wheel{animation:none}}
+@media(max-width:640px){.scroll-anim{display:none}}
+
+/* tag cloud + browser-dots: calm palette */
+.tp:hover{color:var(--text)!important;border-color:var(--border-bright)!important;box-shadow:none!important}
+.tp-tag:hover{color:var(--text)!important;border-color:var(--border-bright)!important;box-shadow:none!important}
+.dd.r,.dd.y,.dd.g{background:var(--border-bright)!important}
