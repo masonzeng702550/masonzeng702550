@@ -10,18 +10,7 @@
     <a class="btn" data-i18n="cta_proj" href="<%- url_for('/projects/') %>">看專案</a>
     <a class="btn" data-i18n="cta_about" href="<%- url_for('/about/') %>">關於我</a>
   </div>
-  <a class="scroll-cue notranslate" translate="no" href="#featured" aria-label="scroll down">SCROLL <span class="cue-ar">▼</span></a>
-</section>
-
-<section class="home-block reveal">
-  <div class="hb-head"><span class="hb-k">§ TERMINAL</span><h2 data-i18n="term">互動終端機</h2><button class="hb-more term-play" type="button" onclick="launchGame()">玩小遊戲 ▸</button></div>
-  <div class="term-widget notranslate" translate="no">
-    <div class="tw-bar"><span class="dd r"></span><span class="dd y"></span><span class="dd g"></span><span class="tw-title">mason@blog: ~</span></div>
-    <div class="tw-body" id="twBody">
-      <div class="tw-line"><span class="tw-out">歡迎來到 MaZon.log。輸入 <b>help</b> 看可用指令，或 <b>game</b> 玩打磚塊。</span></div>
-    </div>
-    <div class="tw-inline"><span class="tw-prompt">mason@blog:~$</span><input id="twInput" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="terminal input"></div>
-  </div>
+  <a class="scroll-more notranslate" translate="no" href="#featured">了解更多 <span class="sm-ar">↓</span></a>
 </section>
 
 <section id="featured" class="home-block reveal">
@@ -34,46 +23,7 @@
 </section>
 
 <section class="home-block reveal">
-  <div class="hb-head"><span class="hb-k">§ TOPICS</span><h2 data-i18n="topics">分類與標籤</h2></div>
-  <%
-    var items = [];
-    site.categories.each(function (c) { items.push({ name: c.name, url: url_for(c.path), n: c.length, cat: true }); });
-    site.tags.each(function (t) { items.push({ name: t.name, url: url_for(t.path), n: t.length, cat: false }); });
-    var maxn = 1; items.forEach(function (i) { if (i.n > maxn) maxn = i.n; });
-    items.sort(function (a, b) { return b.n - a.n; });
-  %>
-  <div class="tagcloud2">
-    <div class="tagcloud2-title">目前共有 <b><%= items.length %></b> 個分類與標籤</div>
-    <div class="tagcloud2-tags">
-    <% items.forEach(function (it, i) {
-         var r = it.n / maxn;
-         var fs = (0.82 + r * 1.15).toFixed(2);
-         var op = (0.62 + r * 0.38).toFixed(2);
-         var mt = ((i * 47) % 30) - 15;      // -15..14 px 垂直錯落
-         var dl = (((i * 31) % 40) / 10).toFixed(1);  // 0..3.9s 浮動延遲
-         var du = (3.4 + ((i * 17) % 20) / 10).toFixed(1); // 3.4..5.3s 週期
-    %>
-      <a class="tp <%= it.cat ? 'tp-cat' : 'tp-tag' %>" href="<%= it.url %>"
-         style="font-size:<%= fs %>rem;opacity:<%= op %>;margin-top:<%= mt %>px;animation-delay:<%= dl %>s;animation-duration:<%= du %>s"
-         title="<%= it.n %> 篇"><%= it.cat ? it.name : ('#' + it.name) %></a>
-    <% }) %>
-    </div>
-  </div>
-</section>
-
-<section class="home-block reveal">
-  <div class="hb-head"><span class="hb-k">§ GITHUB</span><h2>開發足跡</h2><a class="hb-more" href="https://github.com/masonzeng702550" target="_blank" rel="noopener">@masonzeng702550</a></div>
-  <div class="gh-graph">
-    <img loading="lazy" alt="GitHub 貢獻活動圖" src="https://github-readme-activity-graph.vercel.app/graph?username=masonzeng702550&bg_color=0f1422&color=22d3ee&line=a78bfa&point=ffffff&area=true&area_color=22d3ee&hide_border=true&custom_title=Contribution+Activity&height=300">
-  </div>
-  <div class="gh-stats">
-    <img loading="lazy" alt="GitHub 統計" src="https://github-readme-stats-roan-five.vercel.app/api?username=masonzeng702550&show_icons=true&hide_border=true&theme=transparent&title_color=22d3ee&icon_color=22d3ee&text_color=cbd5e1&include_all_commits=true&count_private=true">
-    <img loading="lazy" alt="常用語言" src="https://github-readme-stats-roan-five.vercel.app/api/top-langs/?username=masonzeng702550&layout=compact&hide_border=true&theme=transparent&title_color=22d3ee&text_color=cbd5e1&langs_count=8">
-  </div>
-</section>
-
-<section class="home-block reveal">
-  <div class="hb-head"><span class="hb-k">§ PROJECTS</span><h2>酷專案</h2><a class="hb-more" href="<%- url_for('/projects/') %>">全部</a></div>
+  <div class="hb-head"><span class="hb-k">§ PROJECTS</span><h2 data-i18n="projects_h">專案</h2><a class="hb-more" data-i18n="more" href="<%- url_for('/projects/') %>">全部</a></div>
   <%
     var featNames = ['verus-bridge-forensics','VOXATC-voice_air_traffic_communication_trainer','incense','recycle-ai-tw','my.msfs-flightlog24.com','secure-vault-solidity'];
     var byName = {}; (site.data.projects || []).forEach(function (p) { byName[p.name] = p; });
@@ -81,36 +31,9 @@
   <div class="proj-grid">
   <% featNames.forEach(function (nm) { var p = byName[nm]; if (!p) return; %>
     <a class="proj-card reveal" href="<%= p.url %>" target="_blank" rel="noopener">
-      <div class="pc-top"><span class="pc-name"><%= p.name %></span><% if (p.stars > 0) { %><span class="pc-star">★ <%= p.stars %></span><% } %></div>
+      <div class="pc-top"><span class="pc-name"><%= p.name %></span></div>
       <div class="pc-desc"><%= p.desc %></div>
       <% if (p.lang) { %><div class="pc-foot"><span class="pc-lang"><%= p.lang %></span></div><% } %>
-    </a>
-  <% }) %>
-  </div>
-</section>
-
-<section class="home-block reveal">
-  <div class="hb-head"><span class="hb-k">§ LIVE</span><h2>作品預覽</h2><span class="hb-note">即時網站截圖・點擊開啟</span></div>
-  <%
-    var demos = [
-      { n: 'recycle-ai-tw', d: 'Trashform 影像辨識回收', u: 'https://recycle-ai-tw.vercel.app', img: '/images/previews/recycle-ai-tw.png' },
-      { n: 'Treehouse Booking', d: 'T-School 樹屋借用系統', u: 'https://treehouse-booking.vercel.app', img: '/images/previews/treehouse.png' },
-      { n: 'T-Skyler Airlines', d: '航空訂票 / 機票產生器', u: 'https://t-skyler-airlines.github.io/', img: '/images/previews/tskyler.png' },
-      { n: 'Aircraft Marshaller', d: '飛機地面導引員模擬', u: 'https://masonzeng702550.github.io/aircraft-marshaller/', img: '/images/previews/marshaller.png' },
-      { n: 'MSFS Flight Logbook', d: '飛行紀錄互動地球', u: 'https://masonzeng702550.github.io/my.msfs-flightlog24.com/', img: '/images/previews/msfs.png' },
-      { n: 'vtsim-web', d: '維也納測驗模擬器', u: 'https://masonzeng702550.github.io/vtsim-web/', img: '/images/previews/vtsim.png' },
-      { n: 'DICAGO', d: '航空英語 ICAO 訓練', u: 'https://masonzeng702550.github.io/DICAGO/', img: '/images/previews/dicago.png' },
-      { n: "I'm Python, NOT snake", d: '換色貪食蛇 CTF 網頁', u: 'https://masonzeng702550.github.io/I-m-_Python-_NOT_snake/', img: '/images/previews/snake.png' },
-      { n: 'J50ANESE', d: '日文五十音學習', u: 'https://masonzeng702550.github.io/J50ANESE/', img: '/images/previews/j50anese.png' },
-      { n: 'tschool_web', d: 'T-School 招生官網', u: 'https://masonzeng702550.github.io/tschool_web/', img: '/images/previews/tschoolweb.png' }
-    ];
-  %>
-  <div class="demo-grid">
-  <% demos.forEach(function (p) { var host = p.u.replace(/^https?:\/\//, '').replace(/\/$/, ''); %>
-    <a class="demo-card reveal" href="<%= p.u %>" target="_blank" rel="noopener">
-      <div class="demo-bar"><span class="dd r"></span><span class="dd y"></span><span class="dd g"></span><span class="demo-addr"><%= host %></span></div>
-      <div class="demo-shot"><img loading="lazy" alt="<%= p.n %> 網站預覽" src="<%- url_for(p.img) %>"></div>
-      <div class="demo-cap"><span class="demo-name"><%= p.n %></span><span class="demo-desc"><%= p.d %></span></div>
     </a>
   <% }) %>
   </div>

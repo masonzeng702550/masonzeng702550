@@ -17,7 +17,7 @@
   var seq = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65], pos = 0;
   document.addEventListener('keydown', function (e) {
     pos = (e.keyCode === seq[pos]) ? pos + 1 : (e.keyCode === seq[0] ? 1 : 0);
-    if (pos === seq.length) { pos = 0; matrixRain(); }
+    if (pos === seq.length) { pos = 0; (window.launchGame ? window.launchGame() : matrixRain()); }
   });
   function matrixRain() {
     if (document.getElementById('matrixfx')) return;
