@@ -10,10 +10,16 @@
   });
   if (totop) totop.onclick = function () { window.scrollTo({ top: 0, behavior: 'smooth' }); };
 
-  // reveal on scroll — robust against Google-Translate DOM churn:
-  // once shown, we pin the final state with INLINE styles (survive class stripping)
-  // and re-assert a few times after load in case the translator re-processes the DOM.
+  // reveal on scroll — hardened:
+  // (1) INLINE styles pin the final state so Google-Translate DOM churn can't hide it
+  // (2) scroll-sweep is the primary trigger (independent of IntersectionObserver)
+  // (3) viewport height falls back through several sources so odd envs still reveal
+  // (4) a final failsafe guarantees content is never left permanently hidden
   var shown = [];
+  function vh() {
+    return window.innerHeight || document.documentElement.clientHeight ||
+      (window.visualViewport && window.visualViewport.height) || screen.height || 800;
+  }
   function reveal(el) {
     if (el.__rv) return; el.__rv = 1; shown.push(el);
     el.classList.add('in'); el.style.opacity = '1'; el.style.transform = 'none';
@@ -25,18 +31,34 @@
       if (el.style.transform !== 'none') el.style.transform = 'none';
     });
   }
-  var io = new IntersectionObserver(function (es) {
-    es.forEach(function (e) { if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); } });
-  }, { threshold: 0.06, rootMargin: '0px 0px -6% 0px' });
-  document.querySelectorAll('.reveal').forEach(function (e) { io.observe(e); });
+  var all = [].slice.call(document.querySelectorAll('.reveal'));
   function sweep() {
-    document.querySelectorAll('.reveal').forEach(function (e) {
+    var H = vh();
+    all.forEach(function (e) {
+      if (e.__rv) return;
       var r = e.getBoundingClientRect();
-      if (r.top < window.innerHeight * 0.94 && r.bottom > 0) reveal(e);
+      if (r.top < H * 0.92 && r.bottom > -60) reveal(e);
     });
   }
-  window.addEventListener('load', function () { setTimeout(sweep, 60); });
-  [300, 900, 1800, 3200].forEach(function (t) { setTimeout(reassert, t); });
+  var queued = false;
+  function onScroll() { if (queued) return; queued = true; requestAnimationFrame(function () { queued = false; sweep(); reassert(); }); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  // IntersectionObserver as an extra trigger where it works
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); } });
+    }, { threshold: 0.06, rootMargin: '0px 0px -5% 0px' });
+    all.forEach(function (e) { io.observe(e); });
+  }
+  sweep();
+  window.addEventListener('load', function () { setTimeout(function () { sweep(); reassert(); }, 60); });
+  [250, 700, 1500, 3000].forEach(function (t) { setTimeout(function () { sweep(); reassert(); }, t); });
+  // failsafe: reveal anything within/near the fold so content is never stuck hidden,
+  // while genuinely below-fold items still wait to animate in on scroll
+  setTimeout(function () {
+    var H = vh();
+    all.forEach(function (e) { if (e.__rv) return; if (e.getBoundingClientRect().top < H * 1.1) reveal(e); });
+  }, 4500);
 
   // TOC active on scroll
   var links = [].slice.call(document.querySelectorAll('.post-aside .toc-link'));
