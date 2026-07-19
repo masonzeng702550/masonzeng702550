@@ -66,7 +66,7 @@ const mason = {
 **AI / LLM**
 
 <img height="30" src="https://cdn.simpleicons.org/anthropic/8aa8b6" alt="Claude" title="Claude" />&nbsp;&nbsp;&nbsp;
-<img height="30" src="https://cdn.simpleicons.org/openai/8aa8b6" alt="OpenAI" title="OpenAI" />&nbsp;&nbsp;&nbsp;
+<code>OpenAI</code>&nbsp;&nbsp;&nbsp;
 <img height="30" src="https://cdn.simpleicons.org/googlegemini/8aa8b6" alt="Gemini" title="Gemini" />&nbsp;&nbsp;&nbsp;
 <code>Groq</code>
 
