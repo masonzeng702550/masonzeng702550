@@ -10,7 +10,6 @@
 
 <p>
   <img src="https://komarev.com/ghpvc/?username=masonzeng702550&label=visitors&color=8aa8b6&style=flat-square&labelColor=141517" alt="visitors" />
-  <img src="https://img.shields.io/github/followers/masonzeng702550?label=followers&style=flat-square&color=8aa8b6&labelColor=141517" alt="followers" />
 </p>
 
 </div>
@@ -47,36 +46,36 @@ const mason = {
 
 **Languages**
 
-![Python](https://img.shields.io/badge/Python-141517?style=flat-square&logo=python&logoColor=8aa8b6)
-![TypeScript](https://img.shields.io/badge/TypeScript-141517?style=flat-square&logo=typescript&logoColor=8aa8b6)
-![JavaScript](https://img.shields.io/badge/JavaScript-141517?style=flat-square&logo=javascript&logoColor=8aa8b6)
-![Swift](https://img.shields.io/badge/Swift-141517?style=flat-square&logo=swift&logoColor=8aa8b6)
-![Solidity](https://img.shields.io/badge/Solidity-141517?style=flat-square&logo=solidity&logoColor=8aa8b6)
-![C++](https://img.shields.io/badge/C++-141517?style=flat-square&logo=cplusplus&logoColor=8aa8b6)
-![HTML5](https://img.shields.io/badge/HTML5-141517?style=flat-square&logo=html5&logoColor=8aa8b6)
+<img height="30" src="https://cdn.simpleicons.org/python/8aa8b6" alt="Python" title="Python" />&nbsp;&nbsp;&nbsp;
+<img height="30" src="https://cdn.simpleicons.org/typescript/8aa8b6" alt="TypeScript" title="TypeScript" />&nbsp;&nbsp;&nbsp;
+<img height="30" src="https://cdn.simpleicons.org/javascript/8aa8b6" alt="JavaScript" title="JavaScript" />&nbsp;&nbsp;&nbsp;
+<img height="30" src="https://cdn.simpleicons.org/swift/8aa8b6" alt="Swift" title="Swift" />&nbsp;&nbsp;&nbsp;
+<img height="30" src="https://cdn.simpleicons.org/solidity/8aa8b6" alt="Solidity" title="Solidity" />&nbsp;&nbsp;&nbsp;
+<img height="30" src="https://cdn.simpleicons.org/cplusplus/8aa8b6" alt="C++" title="C++" />&nbsp;&nbsp;&nbsp;
+<img height="30" src="https://cdn.simpleicons.org/html5/8aa8b6" alt="HTML5" title="HTML5" />
 
 **Frameworks / Runtimes**
 
-![Flask](https://img.shields.io/badge/Flask-141517?style=flat-square&logo=flask&logoColor=8aa8b6)
-![Next.js](https://img.shields.io/badge/Next.js-141517?style=flat-square&logo=nextdotjs&logoColor=8aa8b6)
-![SvelteKit](https://img.shields.io/badge/SvelteKit-141517?style=flat-square&logo=svelte&logoColor=8aa8b6)
-![Node.js](https://img.shields.io/badge/Node.js-141517?style=flat-square&logo=nodedotjs&logoColor=8aa8b6)
-![FastAPI](https://img.shields.io/badge/FastAPI-141517?style=flat-square&logo=fastapi&logoColor=8aa8b6)
-![Vercel](https://img.shields.io/badge/Vercel-141517?style=flat-square&logo=vercel&logoColor=8aa8b6)
+<img height="30" src="https://cdn.simpleicons.org/flask/8aa8b6" alt="Flask" title="Flask" />&nbsp;&nbsp;&nbsp;
+<img height="30" src="https://cdn.simpleicons.org/nextdotjs/8aa8b6" alt="Next.js" title="Next.js" />&nbsp;&nbsp;&nbsp;
+<img height="30" src="https://cdn.simpleicons.org/svelte/8aa8b6" alt="SvelteKit" title="SvelteKit" />&nbsp;&nbsp;&nbsp;
+<img height="30" src="https://cdn.simpleicons.org/nodedotjs/8aa8b6" alt="Node.js" title="Node.js" />&nbsp;&nbsp;&nbsp;
+<img height="30" src="https://cdn.simpleicons.org/fastapi/8aa8b6" alt="FastAPI" title="FastAPI" />&nbsp;&nbsp;&nbsp;
+<img height="30" src="https://cdn.simpleicons.org/vercel/8aa8b6" alt="Vercel" title="Vercel" />
 
 **AI / LLM**
 
-![Claude](https://img.shields.io/badge/Claude-141517?style=flat-square&logo=anthropic&logoColor=8aa8b6)
-![OpenAI](https://img.shields.io/badge/OpenAI-141517?style=flat-square&logo=openai&logoColor=8aa8b6)
-![Gemini](https://img.shields.io/badge/Gemini-141517?style=flat-square&logo=googlegemini&logoColor=8aa8b6)
-![Groq](https://img.shields.io/badge/Groq-141517?style=flat-square&logoColor=8aa8b6)
+<img height="30" src="https://cdn.simpleicons.org/anthropic/8aa8b6" alt="Claude" title="Claude" />&nbsp;&nbsp;&nbsp;
+<img height="30" src="https://cdn.simpleicons.org/openai/8aa8b6" alt="OpenAI" title="OpenAI" />&nbsp;&nbsp;&nbsp;
+<img height="30" src="https://cdn.simpleicons.org/googlegemini/8aa8b6" alt="Gemini" title="Gemini" />&nbsp;&nbsp;&nbsp;
+<code>Groq</code>
 
 **Security / Hardware**
 
-![Foundry](https://img.shields.io/badge/Foundry-141517?style=flat-square&logo=foundry&logoColor=8aa8b6)
-![ESP32](https://img.shields.io/badge/ESP32-141517?style=flat-square&logo=espressif&logoColor=8aa8b6)
-![Arduino](https://img.shields.io/badge/Arduino-141517?style=flat-square&logo=arduino&logoColor=8aa8b6)
-![Raspberry Pi](https://img.shields.io/badge/Raspberry%20Pi-141517?style=flat-square&logo=raspberrypi&logoColor=8aa8b6)
+<code>Foundry</code>&nbsp;&nbsp;&nbsp;
+<img height="30" src="https://cdn.simpleicons.org/espressif/8aa8b6" alt="ESP32" title="ESP32" />&nbsp;&nbsp;&nbsp;
+<img height="30" src="https://cdn.simpleicons.org/arduino/8aa8b6" alt="Arduino" title="Arduino" />&nbsp;&nbsp;&nbsp;
+<img height="30" src="https://cdn.simpleicons.org/raspberrypi/8aa8b6" alt="Raspberry Pi" title="Raspberry Pi" />
 
 </div>
 
@@ -198,14 +197,16 @@ const mason = {
 
 <div align="center">
 
-<a href="mailto:ohmygodmason@gmail.com">
-  <img src="https://img.shields.io/badge/Email-141517?style=flat-square&logo=gmail&logoColor=8aa8b6" />
+<a href="mailto:ohmygodmason@gmail.com" title="Email">
+  <img height="28" src="https://cdn.simpleicons.org/gmail/8aa8b6" alt="Email" />
 </a>
-<a href="https://masonzeng702550.github.io/">
-  <img src="https://img.shields.io/badge/Blog-141517?style=flat-square&logo=hexo&logoColor=8aa8b6" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://masonzeng702550.github.io/" title="Blog">
+  <img height="28" src="https://cdn.simpleicons.org/hexo/8aa8b6" alt="Blog" />
 </a>
-<a href="https://github.com/masonzeng702550">
-  <img src="https://img.shields.io/badge/GitHub-141517?style=flat-square&logo=github&logoColor=8aa8b6" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://github.com/masonzeng702550" title="GitHub">
+  <img height="28" src="https://cdn.simpleicons.org/github/8aa8b6" alt="GitHub" />
 </a>
 
 <br/><br/>
