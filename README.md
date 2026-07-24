@@ -65,14 +65,10 @@ const mason = {
 
 **AI / LLM**
 
-<img height="30" src="https://cdn.simpleicons.org/anthropic/8aa8b6" alt="Claude" title="Claude" />&nbsp;&nbsp;&nbsp;
-<code>OpenAI</code>&nbsp;&nbsp;&nbsp;
-<img height="30" src="https://cdn.simpleicons.org/googlegemini/8aa8b6" alt="Gemini" title="Gemini" />&nbsp;&nbsp;&nbsp;
-<code>Groq</code>
+<img height="30" src="https://cdn.simpleicons.org/anthropic/8aa8b6" alt="Claude" title="Claude" />
 
 **Security / Hardware**
 
-<code>Foundry</code>&nbsp;&nbsp;&nbsp;
 <img height="30" src="https://cdn.simpleicons.org/espressif/8aa8b6" alt="ESP32" title="ESP32" />&nbsp;&nbsp;&nbsp;
 <img height="30" src="https://cdn.simpleicons.org/arduino/8aa8b6" alt="Arduino" title="Arduino" />&nbsp;&nbsp;&nbsp;
 <img height="30" src="https://cdn.simpleicons.org/raspberrypi/8aa8b6" alt="Raspberry Pi" title="Raspberry Pi" />
